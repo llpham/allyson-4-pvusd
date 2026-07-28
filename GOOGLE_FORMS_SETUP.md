@@ -117,7 +117,18 @@ regardless of who owns the form:
 
 ---
 
-## Step 4 — Get the embed code for each form
+## Step 4 — Get the link for each form
+
+> **⚠️ Use the link, not the embed code.** The website links out to the form
+> instead of embedding it, because embedded Google Forms rely on third-party
+> cookies that many browsers now block — for those visitors the embed fails to
+> load or won't submit. What the site needs is the plain share link:
+>
+> 1. Click **Send** (top-right) → the **🔗 (link)** tab.
+> 2. Leave **Shorten URL** unchecked and click **Copy**.
+> 3. You'll get a URL ending in `/viewform`. That's what goes in `index.html`.
+>
+> The embed instructions below are kept for reference only.
 
 For **each** form:
 
@@ -142,25 +153,24 @@ For **each** form:
 
 ---
 
-## Step 5 — Paste the embed codes into the website
+## Step 5 — Put the link into the website
 
-In **`index.html`**, replace each placeholder block with its matching iframe:
+The site currently uses **one combined form** for both supporter sign-up and
+yard-sign requests, exposed as a button in the *Let's Connect* section.
 
-### Supporter form
-- Find the block containing **`Supporter sign-up form goes here`** (inside
-  `id="supporter-signup"`).
-- Delete the entire `<div class="form-placeholder"> … </div>`.
-- Paste the **Become a Supporter** iframe in its place (keep it inside the
-  `<div class="form-embed">`).
+In **`index.html`**, find the block with `id="signup"` and replace the `href` on the
+**"Join the Movement"** button with your `/viewform` URL from Step 4:
 
-### Yard-sign form
-- Find the block containing **`Yard-sign request form goes here`** (inside
-  `id="yard-sign-form"`).
-- Delete the entire `<div class="form-placeholder"> … </div>`.
-- Paste the **Request a Yard Sign** iframe in its place.
+```html
+<a class="btn btn-primary btn-lg"
+   href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform"
+   target="_blank" rel="noopener">
+  Join the Movement <span aria-hidden="true">↗</span>
+</a>
+```
 
-The site already styles `.form-embed iframe` to fill the width, so the embedded forms
-will fit the card automatically.
+Use the bare `/viewform` URL — strip any trailing `?usp=…` or `?embedded=true`.
+That's the only place the form URL appears.
 
 ---
 
@@ -172,6 +182,6 @@ will fit the card automatically.
 - [ ] Responses linked to a Google Sheet (both forms)
 - [ ] Notifications routed to **allysontschwartz@gmail.com** (Option A/B/C)
 - [ ] Public response setting confirmed (not org-restricted)
-- [ ] Embed `<iframe>` copied for both forms
-- [ ] Both iframes pasted into `index.html`, placeholders removed
+- [ ] Share **link** copied (Send → 🔗), not the embed code
+- [ ] Link pasted into the `#signup` button in `index.html`
 - [ ] Test-submit each form and confirm the alert reaches allysontschwartz@gmail.com

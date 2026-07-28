@@ -1,0 +1,162 @@
+=============================================================================
+PRE-FILLED FORM LINKS — an option for the campaign website
+=============================================================================
+
+Prepared for: Allyson Lehrer campaign
+Re:           Sign-up form on the website ("Let's Connect" section)
+Date:         July 2026
+
+-----------------------------------------------------------------------------
+SHORT VERSION
+-----------------------------------------------------------------------------
+
+The website can open your Google Form with certain answers ALREADY FILLED IN,
+depending on which button the visitor clicked.
+
+For example: someone who clicks "Request a Yard Sign" could land on the form
+with the yard-sign option already checked, instead of having to find and check
+it themselves.
+
+This is optional. The site works fine as-is. We're asking whether you want it,
+and if so, which buttons should pre-fill what.
+
+Nothing needs to change on your end unless you say yes.
+
+
+-----------------------------------------------------------------------------
+WHAT THIS LOOKS LIKE TO A VISITOR
+-----------------------------------------------------------------------------
+
+Today, every button leads to the same place: the sign-up form, blank.
+
+  "Join the Movement"     -->  sign-up form (blank)
+  "Request a Yard Sign"   -->  sign-up form (blank)
+
+With pre-filled links, buttons can lead to the same form in different states:
+
+  "Join the Movement"     -->  sign-up form (blank)
+  "Request a Yard Sign"   -->  sign-up form, "Display a yard sign" pre-checked
+  "Volunteer"             -->  sign-up form, "Volunteer" pre-checked
+
+It is the SAME form and the SAME response spreadsheet either way. Only the
+starting state differs. Fewer clicks for the visitor, which usually means more
+people finish the form.
+
+
+-----------------------------------------------------------------------------
+IMPORTANT LIMITATIONS — please read before deciding
+-----------------------------------------------------------------------------
+
+1. THE VISITOR CAN SEE AND CHANGE ANYTHING WE PRE-FILL.
+   A pre-filled answer is just a normal answer that starts out filled in. The
+   visitor can uncheck it, type over it, or ignore it. It is not locked and it
+   is not hidden.
+
+   Because of this, pre-filling is only appropriate for convenience — checking
+   a box the person clearly already wants checked. It should never be used for
+   anything the campaign needs to be certain about.
+
+2. IT IS NOT A RELIABLE WAY TO TRACK WHERE SOMEONE CAME FROM.
+   You might be tempted to pre-fill a hidden "source" field to see which button
+   people used. It will be roughly right, but anyone can edit it, and the field
+   is visible on the form, which looks odd to visitors. If you want real
+   traffic data, that's a separate conversation (site analytics).
+
+3. THE LINKS BREAK IF A QUESTION IS DELETED AND RE-ADDED.
+   Each question on your form has a hidden ID number. Pre-filled links point at
+   those IDs.
+
+   - Editing a question's WORDING is fine. The link keeps working.
+   - DELETING a question and creating a new one gives it a new ID. The old link
+     stops pre-filling.
+
+   The important part: when this breaks, THERE IS NO ERROR MESSAGE. The form
+   simply opens blank, and nobody notices until you wonder why yard-sign
+   requests dropped off. So: if the form gets significantly rebuilt, tell your
+   website contact so the links can be refreshed.
+
+4. SOME QUESTION TYPES CAN'T BE PRE-FILLED.
+   File uploads cannot be pre-filled at all. Dates and times can, but are
+   fussy. Text boxes, multiple choice, checkboxes, and dropdowns all work fine.
+
+
+-----------------------------------------------------------------------------
+IF YOU WANT THIS — HOW TO GET US WHAT WE NEED
+-----------------------------------------------------------------------------
+
+You (whoever owns the Google account the form lives in) generate a special
+link, and send it to your website contact. It takes about two minutes.
+
+  1. Open your form at https://forms.google.com and click into it.
+
+  2. Click the three-dot menu ( : ) in the top-right corner of the page.
+
+  3. Choose "Get pre-filled link".
+
+  4. The form opens in a preview mode. Fill in ONLY the answers you want to
+     start out pre-filled. Leave everything else blank.
+
+     Example: to make a yard-sign button, check ONLY the yard-sign option.
+     Don't type a name or email — those should stay blank for the visitor.
+
+  5. Scroll to the bottom and click "Get link".
+
+  6. A bar appears at the bottom of the screen. Click "COPY LINK".
+
+  7. Paste that link into an email, and label what it's for.
+
+Repeat steps 2-7 for each different pre-filled version you want.
+
+WHAT TO SEND BACK — one line per button, like this:
+
+    Yard sign button  -->  https://docs.google.com/forms/d/e/1FAIpQLSex.../viewform?usp=pp_url&entry.1234567890=Display+a+yard+sign
+
+    Volunteer button  -->  https://docs.google.com/forms/d/e/1FAIpQLSex.../viewform?usp=pp_url&entry.1234567890=Volunteer
+
+The links look long and messy. That's normal — please paste them exactly as
+copied, without editing or shortening them.
+
+
+-----------------------------------------------------------------------------
+QUESTIONS FOR YOU TO DECIDE
+-----------------------------------------------------------------------------
+
+A. Do you want pre-filled links at all? (Perfectly fine to say no.)
+
+B. If yes, which buttons should pre-fill something, and what?
+   The buttons currently on the site are:
+
+     - "Join the Movement"       (top of page, gold button)
+     - "Request a Yard Sign"     (top of page, outlined button)
+     - "Join the Movement"       (in the "Let's Connect" section)
+
+   The most likely candidate is "Request a Yard Sign".
+
+C. Should "Request a Yard Sign" at the top of the page jump STRAIGHT to the
+   form, or keep scrolling down to the "Let's Connect" section first?
+
+   - Straight to the form: fewer steps, likely more sign-ups, but the visitor
+     skips past the section text.
+   - Scroll to the section first: the visitor reads the context around the
+     form before starting it.
+
+   There's no wrong answer — it's a question of whether you'd rather people
+   read the message or complete the form.
+
+
+-----------------------------------------------------------------------------
+ALSO PENDING — a separate decision on the same section
+-----------------------------------------------------------------------------
+
+The two email buttons ("Schedule via Gmail" / "Use email app") have now been
+removed from the "Let's Connect" section and replaced with a single "Join the
+Movement" button that opens the sign-up form. The campaign email address is
+still shown in the footer at the bottom of every page, so nobody loses the
+ability to write in directly.
+
+Worth confirming when you review the page: are you comfortable with the email
+addresses appearing only in the footer, rather than as buttons in the Connect
+section? If you'd rather they were more prominent, say so and we'll bring one
+back alongside the form button.
+
+=============================================================================

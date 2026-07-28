@@ -12,8 +12,11 @@ no framework, no server.
 
 ```
 alyson-school-board/
-├── index.html          # single-page site (all sections, anchor-linked)
+├── index.html          # home page (all sections, anchor-linked)
+├── about.html          # "Meet Allyson" — long-form bio
+├── priorities.html     # "My Priorities" — long-form platform
 ├── styles.css          # all styling + brand color tokens
+├── main.js             # nav toggle, theme toggle, footer year (shared by all pages)
 ├── design-preview.html # standalone color-scheme / component preview (reference only)
 ├── img/
 │   ├── main_logo.png       # "A Place for Every Child" logo
@@ -24,11 +27,85 @@ alyson-school-board/
 
 ### Sections (in `index.html`)
 1. **Hero** — name, tagline, primary calls to action
-2. **About Me** — bio and credentials
-3. **Priorities** — platform / key issues
-4. **Endorsements & Support** — quotes and supporters
-5. **Get Involved** — supporter info collection (Google Form)
-6. **Yard Sign Signup** — yard-sign request (Google Form)
+2. **About Me** — short-form bio + "Learn More About Allyson" → `about.html`
+3. **My Priorities** — four short-form cards + "Learn More About My Priorities" → `priorities.html`
+4. **Let's Connect** — community conversations + sign-up form button
+
+### Short vs. long copy
+
+Both the bio and the priorities exist in two lengths — a short version on the
+home page and a long version on its own page. **All of it is verbatim from the
+campaign's Google Doc:**
+
+| Content    | Short (home page)      | Long (own page)   | Doc tab            |
+|------------|------------------------|-------------------|--------------------|
+| Bio        | `index.html`, `#about` | `about.html`      | Meet Allyson Lehrer |
+| Priorities | `index.html`, `#priorities` | `priorities.html` | Priorities     |
+
+The doc is the source of truth — **edit the text there first**, then mirror the
+change into the HTML. Don't reword it in the HTML alone.
+
+> **Known typo, kept on purpose.** `priorities.html` contains
+> "…for generations.It also means…" (missing space after the period), exactly as
+> it appears in the doc. Fix it in the doc, then here.
+
+### ⚠️ Keep the header and footer aligned across pages
+
+There is **no build step and no templating** — the nav and footer are copied
+verbatim into `index.html`, `about.html`, and `priorities.html`. **A change to
+one must be made in all three**, or the site's navigation silently diverges
+depending on which page a visitor is on. This applies to:
+
+- the nav links (and which ones are commented out)
+- the footer "Explore" and "Contact" columns
+- the FPPC disclosure line
+- anything else between `<header class="nav">` and `</header>`, or inside `<footer>`
+
+Note the link style differs by page: `index.html` links to its own sections with
+`#priorities`-style anchors, while the sub-pages must use `index.html#priorities`.
+Shared behaviour (nav toggle, theme toggle, footer year) already lives in one
+place — `main.js` — so it does *not* need syncing.
+
+### 📌 TODO: privacy notice → move it into the Google Form
+
+The site previously had a **Privacy** section (`#privacy`) explaining how form
+submissions are used. It has been removed from the site entirely, along with the
+footer links that pointed at it.
+
+**It would be good to add this detail to the Google Form instead**, which is
+arguably where it belongs — it's the point where someone actually hands over
+their name, email, and address, so that's where the notice is most likely to be
+read. Options, roughly in order of effort:
+
+1. Put it in the **form description** (the text under the form title), so it's
+   visible before anyone starts typing.
+2. Add it as a short **section header / description block** immediately above the
+   fields that collect contact details.
+3. Add a **required checkbox** ("I understand how my information will be used")
+   if the campaign wants a recorded acknowledgement.
+
+Suggested wording, adapted from the section that was removed — **have the
+campaign's treasurer or counsel confirm it before publishing**:
+
+> Information you share through this form (such as your name, email, and address)
+> is collected via Google Forms and used only by the campaign to contact you,
+> coordinate volunteers and yard-sign delivery, and send campaign updates. We do
+> not sell your information.
+
+Still open regardless of where the notice lives: a contact address for data
+requests, and any legally required reporting of contributor information.
+
+### Hidden: Endorsements
+
+The **Endorsements & Support** section has no real content yet, so it is
+commented out rather than deleted. To bring it back, un-comment **all** of:
+
+- the `#endorsements` section in `index.html`
+- the nav `<li>` in `index.html`, `about.html`, and `priorities.html`
+- the footer "Explore" link in all three pages
+
+The section's inner `<!-- TODO -->` comments were converted to `~~ … ~~` markers,
+because HTML comments cannot nest — restore them when you un-comment.
 
 ---
 
@@ -66,7 +143,16 @@ That's the only change needed — every headline updates automatically.
 
 ## Forms → email (free, via Google Forms)
 
-Both signup forms use **Google Forms**, which is free with unlimited submissions.
+**Currently live: one combined form.** At the client's request, supporter sign-up
+and yard-sign requests are collected by a *single* Google Form, embedded in the
+Connect section at `#signup` in `index.html`. The two-form setup described in the
+guide below is the original plan — kept because the client is still evaluating.
+
+The Connect section's two email buttons ("Schedule via Gmail" / "Use email app")
+have been replaced by a single **Join the Movement** button linking to the form.
+The campaign email address is still reachable from the footer.
+
+Sign-up uses **Google Forms**, which is free with unlimited submissions.
 Responses collect in a Google Sheet, and notifications are routed to
 **allysontschwartz@gmail.com** on each submission.
 
@@ -75,10 +161,19 @@ so setup is documented in a dedicated, hand-off-ready guide:
 
 ### 👉 See **[GOOGLE_FORMS_SETUP.md](GOOGLE_FORMS_SETUP.md)**
 
-It covers creating both forms, choosing fields, routing notifications to
-`allysontschwartz@gmail.com`, copying the embed codes, and pasting them into
-`index.html` (replacing the `.form-placeholder` blocks at `#supporter-signup` and
-`#yard-sign-form`).
+It covers creating the forms, choosing fields, routing notifications to
+`allysontschwartz@gmail.com`, and copying the embed codes.
+
+**The site links to the form rather than embedding it.** Google Forms embeds run
+in an iframe that depends on third-party cookies; browsers increasingly block
+those by default, and when they do the embed either fails to render or refuses
+to submit — with no useful error for the visitor. Opening the form on
+`docs.google.com` makes it first-party, so it works for everyone. **Skip Step 4's
+embed code** in the guide below; use the plain **Send → 🔗 link** URL instead.
+
+To point the site at a different form, replace the one `docs.google.com` URL in
+the `#signup` button in `index.html`. Use the bare `/viewform` URL with no query
+string (drop any `?usp=…` or `?embedded=true`).
 
 > Also replace `CAMPAIGN_EMAIL@example.com` (in the "Do More" card and footer) with
 > the real campaign email address.
@@ -103,8 +198,8 @@ not legal advice.**
 - **Where a disclaimer IS mandatory** (for the broader campaign, not this site): mass
   mailings, robocalls, radio/TV ads, and **social media ads** — including a candidate's
   personal Facebook page used for campaigning/fundraising ("Ad paid for by …").
-- **Privacy.** The forms collect personal data (name, email, address). A short privacy
-  section is included (`#privacy`) — review and adjust the wording.
+- **Privacy.** The forms collect personal data (name, email, address). The site's
+  privacy section has been **removed** — see the TODO below.
 - **If you add online donations later:** contribution limits apply, contributors giving
   **$100+** must have employer/occupation recorded, and anonymous contributions over
   **$100** are prohibited. Add the appropriate fundraising disclosures at that time.
@@ -164,20 +259,21 @@ The site scaffold, styling, and layout are done. The **content** for each sectio
 placeholder text marked with `[TODO]` in `index.html` (and highlighted `TODO` chips
 visible on the page). Fill these in after initial setup:
 
-- [x] **About Me** — filled from the campaign doc (full bio, verbatim)
-- [x] **Priorities** — filled from the campaign doc (Fiscal Stewardship, Future-Ready
-  Learning, A Place for Every Child, verbatim)
+- [x] **About Me** — short form on `index.html`, long form on `about.html`, both verbatim
+- [x] **Priorities** — short form on `index.html`, long form on `priorities.html`, both
+  verbatim (Preparing Students for the Future, Safe & Supportive Schools, Fiscal
+  Stewardship, Enrollment)
 - [x] **Community Conversations ("Let's Connect")** — filled from the doc (new section added)
-- [~] **Endorsements & Support** — intro line filled verbatim; **quotes/names still needed**
-  (the doc did not yet list specific endorsers — cards remain `[TODO]`)
-- [ ] **Get Involved** — embed the supporter Google Form (see GOOGLE_FORMS_SETUP.md)
-- [ ] **Yard Sign Signup** — embed the yard-sign Google Form
+- [~] **Endorsements & Support** — **hidden** until real endorsers exist (see above);
+  markup preserved, commented out
+- [x] **Sign-up** — single combined Google Form, linked from the "Join the Movement" button
 - [x] **Contact email** — set to `allyson4pvpusd@gmail.com` **(confirm — source doc
   truncated at "gmai")**
 - [ ] **Social links** — add real Facebook / Instagram handles (footer)
 - [x] **Footer disclosure (FPPC)** — committee name set to "Allyson Lehrer 4 PVPUSD"
 - [ ] **FPPC ID** — replace `[TODO: #######]` in the footer once Form 410 is filed
-- [ ] **Privacy** — review/adjust the `#privacy` notice; add a data-request contact
+- [ ] **Privacy** — section removed from the site; add the notice to the Google Form
+  instead (see the TODO above) and include a data-request contact
 - [ ] **Compliance review** — have the treasurer/FPPC confirm disclosures before launch
 - [ ] **Hero** — confirm tagline/CTA wording
 - [x] **Meta** — page title / social preview updated (removed "M.Ed. | MBA"; her degrees

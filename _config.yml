@@ -11,6 +11,8 @@ exclude:
   # Internal setup instructions
   - GOOGLE_FORMS_SETUP.md
   - GOOGLE_FORMS_SETUP.txt
+  # Client-facing hand-out (not for the public site)
+  - FORM_PREFILL_OPTIONS.txt
   # Repo docs
   - README.md
 

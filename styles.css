@@ -211,6 +211,7 @@ img { max-width: 100%; display: block; }
 .btn-outline-light:hover { background: rgba(255,255,255,.14); color: #fff; }
 .btn-ghost { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); }
 .btn-ghost:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.btn-lg { font-size: 17px; padding: 15px 30px; }
 
 /* Pair of email actions: Gmail (primary) + mailto (secondary) */
 .email-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
@@ -220,6 +221,17 @@ img { max-width: 100%; display: block; }
 @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; } }
 .about-photo img { border-radius: var(--radius); box-shadow: var(--shadow); }
 .about-body :where(p) { margin: 0 0 16px; font-size: 17px; }
+/* Action row under a block of copy (index: "Learn More"; sub-pages: sign-up) */
+.about-more { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 0; }
+
+/* Long-form body copy on the sub-pages (priorities.html) */
+.longform { max-width: 72ch; }
+.longform p { margin: 0 0 16px; font-size: 17px; }
+.longform h2 {
+  font-size: clamp(22px, 2.6vw, 27px); margin: 40px 0 14px; color: var(--text);
+  padding-top: 20px; border-top: 1px solid var(--border);
+}
+.longform h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 34px; }
 .credentials { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
 .credentials li {
   font-weight: 700; font-size: 14px; padding: 7px 15px; border-radius: 999px;
@@ -227,7 +239,8 @@ img { max-width: 100%; display: block; }
 }
 
 /* ------------------------------------------------------------- Priorities */
-.priorities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
+/* auto-fit so the four short-form cards reflow cleanly at every width */
+.priorities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; align-items: start; }
 @media (max-width: 860px) { .priorities-grid { grid-template-columns: 1fr; } }
 .priority-card {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
@@ -274,26 +287,10 @@ img { max-width: 100%; display: block; }
 .supporter-logos { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; margin-top: 34px; color: var(--text-soft); }
 
 /* ------------------------------------------------------------- Forms / signup */
-.signup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-@media (max-width: 860px) { .signup-grid { grid-template-columns: 1fr; } }
-.form-card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: clamp(22px, 3vw, 32px); box-shadow: var(--shadow);
-}
-.form-card h3 { font-size: 24px; margin: 0 0 6px; color: var(--text); }
-.form-card > p { color: var(--text-soft); margin: 0 0 20px; }
-.form-embed {
-  border-radius: var(--radius-sm); overflow: hidden;
-  border: 1px dashed var(--border); background: var(--bg);
-}
-.form-embed iframe { width: 100%; border: 0; display: block; }
-/* Placeholder shown until a real Google Form URL is dropped in */
-.form-placeholder {
-  padding: 40px 24px; text-align: center; color: var(--text-soft);
-  border: 2px dashed var(--border); border-radius: var(--radius-sm); background: var(--bg);
-}
-.form-placeholder strong { display: block; color: var(--text); font-size: 16px; margin-bottom: 6px; }
-.form-placeholder code { font-family: var(--font-mono); font-size: 13px; background: var(--surface-2); padding: 2px 6px; border-radius: 5px; }
+/* Single combined sign-up form (supporter info + yard sign), linked from the
+   "Join the Movement" button. The form opens on docs.google.com rather than
+   embedding — see index.html. */
+.form-note { margin: 14px 0 0; max-width: 62ch; font-size: 15px; color: var(--text-soft); }
 
 /* ------------------------------------------------------------- Footer */
 .footer { background: var(--footer-bg); color: #fff; padding-block: 48px 28px; }
@@ -304,6 +301,8 @@ img { max-width: 100%; display: block; }
 .footer-brand img { height: 46px; margin-bottom: 14px; background:#fff; border-radius: 8px; padding: 6px; }
 .footer-brand p { opacity: .85; font-size: 14.5px; margin: 0; }
 .footer nav { display: flex; flex-direction: column; gap: 8px; }
+/* Placeholder entries that aren't links yet (e.g. social handles) */
+.footer-soon { opacity: .55; }
 .footer h4 { font-family: var(--font-body); text-transform: uppercase; letter-spacing: .1em; font-size: 12px; opacity: .7; margin: 0 0 12px; }
 /* FPPC "paid for by" disclosure — kept legible, not buried */
 .disclosure {
@@ -313,21 +312,6 @@ img { max-width: 100%; display: block; }
 }
 .disclosure strong { font-weight: 700; }
 .footer-bottom { margin-top: 16px; padding-top: 4px; font-size: 13px; opacity: .8; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
-
-/* TODO markers (visible during build; harmless if left) */
-.todo {
-  display: inline-block; font-family: var(--font-mono); font-size: 12px; font-weight: 700;
-  background: color-mix(in srgb, var(--highlight) 30%, transparent); color: #7a5600;
-  padding: 2px 8px; border-radius: 5px; margin-left: 8px; vertical-align: middle;
-}
-@media (prefers-color-scheme: dark) { .todo { color: var(--highlight); } }
-.todo:first-child { margin-left: 0; margin-right: 8px; }
-
-/* Inline placeholder notice (e.g. "forms coming soon") */
-.section-note {
-  background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius-sm);
-  padding: 18px 20px; color: var(--text-soft); font-size: 16px; max-width: 62ch;
-}
 
 /* Theme toggle */
 .theme-toggle {

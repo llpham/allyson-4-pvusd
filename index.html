@@ -35,9 +35,12 @@
       </button>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#priorities">Priorities</a></li>
-        <li><a href="#endorsements">Endorsements</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="priorities.html">Priorities</a></li>
+        <!-- HIDDEN until there are endorsements to show. Un-comment this and the
+             #endorsements section further down (plus the footer link) together.
+             about.html and priorities.html have the same two lines commented out. -->
+        <!-- <li><a href="#endorsements">Endorsements</a></li> -->
         <li><a href="#community" class="nav-cta">Connect</a></li>
         <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button></li>
       </ul>
@@ -55,8 +58,9 @@
           <h1>Allyson Lehrer</h1>
           <p class="tagline">"A place for every child."</p>
           <div class="hero-actions">
-            <a href="#community" class="btn btn-gold">Join the Movement</a>
-            <a href="#community" class="btn btn-outline-light">Request a Yard Sign</a>
+            <!-- Both land on the single combined sign-up form -->
+            <a href="#signup" class="btn btn-gold">Join the Movement</a>
+            <a href="#signup" class="btn btn-outline-light">Request a Yard Sign</a>
           </div>
         </div>
         <div class="hero-logo">
@@ -81,15 +85,15 @@
               <li>PVPUSD Parent &amp; Alumna</li>
             </ul>
           </div>
+          <!-- SHORT FORM. Verbatim from the campaign doc ("Meet Allyson Lehrer" tab,
+               "Meet Allyson (Short Form, Landing Page)"). The long form lives on
+               about.html — edit the text in the doc first, then mirror it here. -->
           <div class="about-body">
-            <p>Allyson Lehrer is a proud graduate of Palos Verdes Peninsula Unified School District (PVPUSD), a dedicated parent, educational leader, and community volunteer. She is running for the PVPUSD School Board to help preserve the district's tradition of excellence while ensuring every student has the opportunity to thrive.</p>
-            <p>Allyson's family moved to Palos Verdes when she was four years old, and she attended PVPUSD schools from kindergarten through twelfth grade. During her time as a student, she embraced the many opportunities that define the PVPUSD experience. She competed as a student athlete, served in Associated Student Body leadership, and benefited from the support of educators who helped her reach her full potential through an Individualized Education Plan (IEP). These experiences shaped her belief that every child deserves to be seen, supported, challenged, and empowered to succeed.</p>
-            <p>After college, Allyson lived in Los Angeles, where she met her husband, Dr. Ian Lehrer. Together, they embarked on an adventure that took them from Los Angeles to Fort Worth, Texas for his medical internship, and then to New York for his residency training. When they moved to Texas, Allyson began her career in education by working in a school environment, giving her first professional insight into the important role educators, administrators, and communities play in supporting student success. Her continued work in education, including experiences in both Texas and New York, broadened her perspective on different school systems and approaches to serving students and families. These experiences reinforced her belief that strong schools are built through dedicated educators, engaged communities, and thoughtful leadership.</p>
-            <p>When Allyson &amp; Ian decided to start a family, they knew they wanted to return to California to be closer to family and raise their children in a community that shared their values. As their oldest daughter approached school age, they made the intentional decision to return to Palos Verdes so their children could experience the same outstanding schools and close-knit community that had such a meaningful impact on Allyson's own life.</p>
-            <p>Today, Allyson and Ian are raising their two young children in the community that shaped her. Their oldest daughter attends Lunada Bay, and their youngest will soon follow, giving Allyson the unique perspective of both a former student and a current parent.</p>
-            <p>Professionally, Allyson has built a career leading strategic initiatives, developing partnerships, and helping mission-driven organizations expand their impact. She earned a Bachelor of Arts in Communications, a Master of Business Administration (MBA), and a Master of Arts in Educational Studies, providing her with a unique blend of expertise in leadership, organizational management, and educational practice.</p>
-            <p>Throughout her career, Allyson has worked alongside schools, educators, nonprofit organizations, and community partners to strengthen educational opportunities and improve outcomes for students and families. She currently serves as Vice Chair of the PVPUSD Education Advisory Committee, where she collaborates with district leadership, educators, parents, and fellow committee members to support student success and strengthen community engagement.</p>
-            <p>Allyson believes the best decisions are made through collaboration, open communication, and a steadfast focus on what is best for students. She is committed to listening to families, supporting educators, maintaining fiscal responsibility, and ensuring PVPUSD continues to provide an exceptional educational experience with <em>a place for every child.</em></p>
+            <p>As a proud PVPUSD graduate, parent of two young students, and Vice Chair of the PVPUSD Education Advisory Committee, Allyson Lehrer is deeply invested in the future of our schools. Her experiences as a student, education professional, and community leader have given her a unique understanding of what it takes to help every child succeed.</p>
+            <p>Allyson is running for School Board to preserve PVPUSD's tradition of excellence while preparing our students for the future through collaborative leadership, fiscal responsibility, and a commitment to ensuring <strong>#APlaceForEveryChild</strong>.</p>
+            <p class="about-more">
+              <a href="about.html" class="btn btn-primary">Learn More About Allyson</a>
+            </p>
           </div>
         </div>
       </div>
@@ -99,44 +103,49 @@
     <section class="section" id="priorities">
       <div class="container container-wide">
         <p class="eyebrow">What I'll fight for</p>
-        <h2 class="section-title">Priorities</h2>
+        <h2 class="section-title">My Priorities</h2>
         <hr class="rule">
 
+        <!-- SHORT FORM. Verbatim from the campaign doc ("Priorities" tab,
+             "Homepage (Short Version, for Landing Page)"). The long form lives on
+             priorities.html — edit the text in the doc first, then mirror it here. -->
         <div class="priorities-grid">
-          <!-- Priority 1: Fiscal Stewardship -->
+          <article class="priority-card">
+            <div class="icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <h3>Preparing Students for the Future</h3>
+            <p>Preparing students for success in a rapidly changing world by fostering both technical proficiency and the uniquely human skills of critical thinking, communication, creativity, collaboration, curiosity, adaptability, and empathy.</p>
+          </article>
+
+          <article class="priority-card">
+            <div class="icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Safe &amp; Supportive Schools</h3>
+            <p>Creating learning environments that prioritize student mental health and well-being, where every student feels physically and emotionally safe, supported, and ready to learn.</p>
+          </article>
+
           <article class="priority-card">
             <div class="icon" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             </div>
             <h3>Fiscal Stewardship</h3>
-            <p class="priority-sub"><em>Supporting outstanding educators, investing in exceptional programs, and ensuring the long-term financial health of PVPUSD.</em></p>
-            <p>A strong school district requires thoughtful financial stewardship and accountability. As a public institution entrusted with taxpayer dollars, PVPUSD must prioritize transparency, responsible budgeting, and open communication with our community.</p>
-            <p>I believe fiscal responsibility is about making thoughtful, long-term decisions that strengthen our district as a whole. That means supporting and retaining outstanding teachers and staff, investing in the programs that enrich students' educational experiences, and ensuring every dollar is used wisely. By aligning resources with student needs and planning for long-term financial sustainability, we can preserve the excellence of PVPUSD for generations to come.</p>
+            <p>Making thoughtful financial decisions that protect both our people and our programs while strengthening our district for the future.</p>
           </article>
 
-          <!-- Priority 2: Future-Ready Learning -->
           <article class="priority-card">
             <div class="icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <h3>Future-Ready Learning</h3>
-            <p class="priority-sub"><em>Technology should enhance learning, not replace meaningful instruction, creativity, collaboration, and personal connection.</em></p>
-            <p>Technology is changing how we learn, work, and connect. Our students should graduate with the digital literacy and critical thinking skills to thrive in an AI-driven world while also developing the uniquely human qualities that technology cannot replace.</p>
-            <p>Future-ready learning means fostering communication, collaboration, creativity, empathy, resilience, and ethical decision-making alongside strong academics. Technology should be used intentionally to enhance learning while preserving meaningful relationships, hands-on experiences, and exceptional teaching.</p>
-            <p>By preparing students academically, socially, and emotionally, we can ensure they are ready not only for the careers of tomorrow, but also to become thoughtful, engaged citizens and leaders.</p>
-          </article>
-
-          <!-- Priority 3: A Place for Every Child -->
-          <article class="priority-card">
-            <div class="icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3>A Place for Every Child</h3>
-            <p>PVPUSD has earned its reputation for academic excellence by offering exceptional opportunities for students with a wide range of interests, talents, and goals. To remain one of California's premier school districts, we must continue evolving to meet the needs of today's families and tomorrow's learners.</p>
-            <p>Every student brings unique strengths, aspirations, and learning needs to the classroom. Whether a student is pursuing advanced academics, participating in the arts or athletics, exploring career pathways, or benefiting from additional academic or social-emotional support, every child should have the opportunity to learn, belong, and thrive in PVPUSD.</p>
-            <p>When families know their children will be challenged, supported, and valued, they choose public education. By continuing to invest in outstanding programs, exceptional educators, and opportunities that meet the diverse needs of our students, we can ensure PVPUSD remains a place where families want to enroll, stay, and succeed together.</p>
+            <h3>Enrollment</h3>
+            <p>Building a district where families proudly enroll, stay, and recommend PVPUSD schools, because we ensure <strong>#APlaceForEveryChild</strong>.</p>
           </article>
         </div>
+
+        <p class="about-more">
+          <a href="priorities.html" class="btn btn-primary">Learn More About My Priorities</a>
+        </p>
       </div>
     </section>
 
@@ -157,6 +166,7 @@
         <ul class="connect-options">
           <li><span aria-hidden="true">☕</span> Coffee Chat</li>
           <li><span aria-hidden="true">🚶</span> Walk &amp; Talk</li>
+          <li><span aria-hidden="true">🏃</span> Run Together</li>
           <li><span aria-hidden="true">🏡</span> Neighborhood Gathering</li>
           <li><span aria-hidden="true">👥</span> Community Meeting</li>
         </ul>
@@ -164,64 +174,40 @@
         <p style="max-width:62ch; font-size:17px; margin:26px 0 24px;">
           Every conversation helps me better understand what matters most to our community and ensures our schools remain focused on what matters most: #APlaceforEveryChild.
         </p>
-        <!-- Two ways to email: Gmail web compose (avoids the OS default app, e.g. Outlook),
-             or a standard mailto: that opens the visitor's own mail app. -->
-        <div class="email-actions">
-          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=allyson4pvpusd@gmail.com&amp;su=Let's%20Connect"
-             target="_blank" rel="noopener" class="btn btn-primary">Schedule via Gmail</a>
-          <a href="mailto:allyson4pvpusd@gmail.com?subject=Let's%20Connect" class="btn btn-ghost">Use email app</a>
-        </div>
+        <!-- ---- Sign-up ---------------------------------------------------------
+             ONE combined Google Form handles both supporter sign-up and yard-sign
+             requests (per client request). #signup is here (not on a wrapper) so the
+             hero buttons scroll to this button.
 
-        <!-- ---- Sign-up forms: supporter info collection + yard sign request ---- -->
-        <!-- =========================================================================
-             TODO: DECIDE HOW SIGN-UP FUNCTIONALITY IS EXPOSED
-             The "Become a Supporter" (supporter info collection) and "Request a Yard
-             Sign" forms are commented out for now. We still need to figure out how this
-             functionality will be surfaced in the future — e.g. embedded Google Forms
-             here, links out to standalone forms, a dedicated page, or another approach.
-             When ready, un-comment the block below and complete the form embeds
-             (see GOOGLE_FORMS_SETUP.md).
-             ========================================================================= -->
-        <p class="section-note" style="margin-top:40px;">
-          <span class="todo">TODO</span>
-          Supporter sign-up and yard-sign request forms are coming soon — we still need
-          to decide how this functionality will be exposed on the site.
+             Deliberately a LINK, not an embedded iframe: a Google Forms embed needs
+             third-party cookies, which browsers increasingly block by default — the
+             embed silently fails to load or refuses to submit for those visitors.
+             Opening the form on docs.google.com makes it first-party, so it always
+             works. To swap in a different form, replace the URL below (plain
+             /viewform, no query string). See GOOGLE_FORMS_SETUP.md.
+             --------------------------------------------------------------------- -->
+        <div class="email-actions" id="signup">
+          <a class="btn btn-primary btn-lg"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSex3J0urTRSUO1VXXytkag6h7EKMhkLG4rSBx16hZ-Y7R8mnw/viewform"
+             target="_blank" rel="noopener">
+            Join the Movement <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <p class="form-note">
+          Opens in a new tab. Sign up for updates, tell us how you'd like to help, and
+          request a yard sign — all in one form.
         </p>
-
-        <!-- COMMENTED OUT — sign-up forms pending a decision on how to expose them:
-        <div class="signup-grid" style="margin-top:48px;">
-          ~~ Supporter info collection ~~
-          <div class="form-card" id="supporter-signup">
-            <h3>Become a Supporter</h3>
-            <p>Sign up for campaign updates and ways to help.</p>
-            <div class="form-embed">
-              <div class="form-placeholder">
-                <strong>Supporter sign-up form goes here</strong>
-                Embed the Google Form via Send -> &lt; &gt; -> copy iframe,
-                paste it above, and remove this placeholder.
-              </div>
-            </div>
-          </div>
-
-          ~~ Yard sign request ~~
-          <div class="form-card" id="yard-sign-form">
-            <h3>Request a Yard Sign</h3>
-            <p>Put a sign in your yard and help spread the word. We'll arrange delivery.</p>
-            <div class="form-embed">
-              <div class="form-placeholder">
-                <strong>Yard-sign request form goes here</strong>
-                Embed the Google Form via Send -> &lt; &gt; -> copy iframe,
-                paste it above, and remove this placeholder.
-              </div>
-            </div>
-            (yard sign image: img/lawn_sign_small.png — restore the styled img tag when un-commenting)
-          </div>
-        </div>
-        -->
       </div>
     </section>
 
-    <!-- ================================================= ENDORSEMENTS -->
+    <!-- ================================================= ENDORSEMENTS
+         HIDDEN until there are real endorsements to show. To bring it back,
+         un-comment the block below AND the "Endorsements" links in the nav (all
+         three pages) and the footer (all three pages).
+         Note: the ~~ markers below were "<!-- -->" comments; HTML comments can't
+         nest, so they were converted. Restore them when un-commenting.
+         ================================================================= -->
+    <!--
     <section class="section" id="endorsements">
       <div class="container">
         <p class="eyebrow">Endorsements &amp; Support</p>
@@ -231,9 +217,9 @@
           Thank you to the following community members for their supporting of my campaign, and a shared belief in a #APlaceforEveryChild.
         </p>
 
-        <!-- TODO: Add endorsers as they come in. The doc did not yet list specific
-             names or quotes, so the cards below remain placeholders. Duplicate a
-             .quote-card (with a quote) or add names to the list below. -->
+        ~~ TODO: Add endorsers as they come in. The doc did not yet list specific
+           names or quotes, so the cards below remain placeholders. Duplicate a
+           .quote-card (with a quote) or add names to the list below. ~~
         <div class="endorse-grid">
           <div class="quote-card">
             <blockquote><em>[TODO: Endorsement quote #1.]</em></blockquote>
@@ -249,29 +235,13 @@
           </div>
         </div>
 
-        <!-- TODO: Optional — list endorsing community members / organizations here. -->
+        ~~ TODO: Optional — list endorsing community members / organizations here. ~~
         <div class="supporter-logos">
           <em>[TODO: List endorsing community members and organizations here as they are confirmed.]</em>
         </div>
       </div>
     </section>
-
-    <!-- ================================================= PRIVACY -->
-    <section class="section" id="privacy">
-      <div class="container">
-        <p class="eyebrow">Privacy</p>
-        <h2 class="section-title">Your information</h2>
-        <hr class="rule">
-        <p class="section-lead" style="margin-bottom:0">
-          Information you share through the sign-up and yard-sign forms (such as your
-          name, email, and address) is collected via Google Forms and used only by the
-          campaign to contact you, coordinate volunteers and yard-sign delivery, and
-          send campaign updates. We do not sell your information.
-          <em>[TODO: Confirm/adjust this notice, add a contact for data requests, and
-          note any legally required reporting of contributor information.]</em>
-        </p>
-      </div>
-    </section>
+    -->
   </main>
 
   <!-- ================================================= FOOTER -->
@@ -286,20 +256,23 @@
 
         <nav aria-label="Footer">
           <h4>Explore</h4>
-          <a href="#about">About</a>
-          <a href="#priorities">Priorities</a>
-          <a href="#endorsements">Endorsements</a>
+          <a href="about.html">About</a>
+          <a href="priorities.html">Priorities</a>
+          <!-- HIDDEN with the #endorsements section — see the nav above -->
+          <!-- <a href="#endorsements">Endorsements</a> -->
           <a href="#community">Connect</a>
-          <a href="#privacy">Privacy</a>
         </nav>
 
         <nav aria-label="Contact">
           <h4>Contact</h4>
           <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=allyson4pvpusd@gmail.com" target="_blank" rel="noopener">Email via Gmail</a>
           <a href="mailto:allyson4pvpusd@gmail.com">Use email app</a>
-          <!-- TODO: add real social handles when available -->
-          <a href="#top">Facebook — TODO</a>
-          <a href="#top">Instagram — TODO</a>
+          <!-- TODO: replace each span with <a href="https://..." target="_blank"
+               rel="noopener"> once the real social handles exist. Left as plain text
+               for now — a link that just jumps back to the top of the page reads as
+               broken. -->
+          <span class="footer-soon">Facebook — coming soon</span>
+          <span class="footer-soon">Instagram — coming soon</span>
         </nav>
       </div>
 
@@ -320,39 +293,11 @@
 
       <div class="footer-bottom">
         <span>&copy; <span id="year"></span> Allyson Lehrer for PV School Board.</span>
-        <span><a href="#privacy">Privacy</a></span>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Mobile nav
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', String(open));
-    });
-    navLinks.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A') { navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false'); }
-    });
-
-    // Theme toggle (persisted)
-    const root = document.documentElement;
-    const saved = localStorage.getItem('theme');
-    if (saved) root.setAttribute('data-theme', saved);
-    document.getElementById('themeToggle').addEventListener('click', () => {
-      const cur = root.getAttribute('data-theme');
-      const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
-      const next = cur === 'dark' ? 'light'
-        : cur === 'light' ? 'dark'
-        : (prefersDark ? 'light' : 'dark');
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-    });
-  </script>
+  <!-- Shared with about.html — keep the page behaviour in one place -->
+  <script src="main.js" defer></script>
 </body>
 </html>
