@@ -15,16 +15,21 @@ navLinks.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') { navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false'); }
 });
 
-// Theme toggle (persisted)
+// Theme toggle (persisted). The button is currently commented out of the nav, so
+// guard the wiring — without this the missing element throws and the rest of the
+// script never runs. A previously saved choice is still honoured.
 const root = document.documentElement;
 const saved = localStorage.getItem('theme');
 if (saved) root.setAttribute('data-theme', saved);
-document.getElementById('themeToggle').addEventListener('click', () => {
-  const cur = root.getAttribute('data-theme');
-  const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
-  const next = cur === 'dark' ? 'light'
-    : cur === 'light' ? 'dark'
-    : (prefersDark ? 'light' : 'dark');
-  root.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-});
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+    const next = cur === 'dark' ? 'light'
+      : cur === 'light' ? 'dark'
+      : (prefersDark ? 'light' : 'dark');
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+}

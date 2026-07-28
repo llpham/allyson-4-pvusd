@@ -42,7 +42,8 @@
         <!-- HIDDEN until there are endorsements to show — see index.html -->
         <!-- <li><a href="index.html#endorsements">Endorsements</a></li> -->
         <li><a href="index.html#community" class="nav-cta">Connect</a></li>
-        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button></li>
+        <!-- Light/dark toggle hidden for now — see index.html -->
+        <!-- <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button></li> -->
       </ul>
     </div>
   </header>
@@ -53,7 +54,7 @@
     <!-- ================================================= PRIORITIES (LONG FORM) -->
     <section class="section" id="priorities">
       <div class="container">
-        <p class="eyebrow">What I'll fight for</p>
+        <p class="eyebrow">How I'll Advocate for You</p>
         <!-- h1 (not h2) — this is the page's top-level heading, unlike the
              equivalent section on index.html where the hero owns the h1. -->
         <h1 class="section-title">My Priorities</h1>
@@ -90,6 +91,9 @@
           <p>My campaign is built around one simple belief: <strong>#APlaceForEveryChild.</strong></p>
           <p>When every child feels welcomed, challenged, supported, and inspired, families choose to stay. When families have confidence in their schools, they become our greatest ambassadors. By investing in educational excellence, fostering a culture of belonging, and strengthening the partnership between schools and families, we can build a district that thrives for generations.</p>
 
+          <!-- Closes the last section, matching the dividers above each heading -->
+          <hr>
+
           <!-- Same sign-up form linked from the home page — see index.html -->
           <p class="about-more">
             <a class="btn btn-primary btn-lg"
@@ -104,38 +108,43 @@
     </section>
   </main>
 
-  <!-- ================================================= FOOTER -->
-  <!-- Mirrors the footer in index.html and about.html; section links point back at
-       the home page. Keep all three in sync. -->
+  <!-- ================================================= FOOTER
+       Content mirrors the "Footer of Website" section of the campaign doc.
+       IDENTICAL on index.html, about.html and priorities.html — no page-relative
+       links in here, so the block can be copied between them verbatim.
+       ================================================================= -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <img src="img/main_logo.png" alt="A Place for Every Child logo">
-          <p>Allyson Lehrer — candidate for the PVPUSD School Board.
-            A place for every child.</p>
-        </div>
+      <div class="footer-main">
+        <img class="footer-logo" src="img/main_logo.png" alt="A Place for Every Child logo">
 
-        <nav aria-label="Footer">
-          <h4>Explore</h4>
-          <a href="about.html">About</a>
-          <a href="priorities.html">Priorities</a>
-          <!-- HIDDEN with the #endorsements section — see index.html -->
-          <!-- <a href="index.html#endorsements">Endorsements</a> -->
-          <a href="index.html#community">Connect</a>
-        </nav>
+        <p class="footer-name">Allyson Lehrer 4 PVPUSD</p>
 
-        <nav aria-label="Contact">
-          <h4>Contact</h4>
-          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=allyson4pvpusd@gmail.com" target="_blank" rel="noopener">Email via Gmail</a>
-          <a href="mailto:allyson4pvpusd@gmail.com">Use email app</a>
-          <!-- TODO: replace each span with <a href="https://..." target="_blank"
-               rel="noopener"> once the real social handles exist. Left as plain text
-               for now — a link that just jumps back to the top of the page reads as
-               broken. -->
-          <span class="footer-soon">Facebook — coming soon</span>
-          <span class="footer-soon">Instagram — coming soon</span>
-        </nav>
+        <p class="footer-contact">
+          <a href="mailto:allyson4pvpusd@gmail.com">allyson4pvpusd@gmail.com</a>
+          <a class="footer-ig" href="https://www.instagram.com/allysonlehrer4pvpusd/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            @allysonlehrer4pvpusd</a>
+        </p>
+
+        <p class="footer-thanks">
+          Thank you for supporting Allyson Lehrer for PVPUSD School Board. Sharing your
+          contact information will help us keep you informed about updates, upcoming
+          events, and opportunities to get involved with the campaign.
+        </p>
+
+        <!-- Same sign-up form as the "Join the Movement" button. The visible text is
+             the doc's wording; aria-label gives screen readers something better than
+             "Click here" when links are listed out of context. -->
+        <p class="footer-cta">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSex3J0urTRSUO1VXXytkag6h7EKMhkLG4rSBx16hZ-Y7R8mnw/viewform"
+             target="_blank" rel="noopener"
+             aria-label="Stay connected with our campaign — open the sign-up form">Click here</a>, to stay connected with our campaign.
+        </p>
       </div>
 
       <!--

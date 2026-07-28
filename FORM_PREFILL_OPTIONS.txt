@@ -30,7 +30,6 @@ WHAT THIS LOOKS LIKE TO A VISITOR
 Today, every button leads to the same place: the sign-up form, blank.
 
   "Join the Movement"     -->  sign-up form (blank)
-  "Request a Yard Sign"   -->  sign-up form (blank)
 
 With pre-filled links, buttons can lead to the same form in different states:
 
@@ -124,24 +123,23 @@ QUESTIONS FOR YOU TO DECIDE
 A. Do you want pre-filled links at all? (Perfectly fine to say no.)
 
 B. If yes, which buttons should pre-fill something, and what?
-   The buttons currently on the site are:
 
-     - "Join the Movement"       (top of page, gold button)
-     - "Request a Yard Sign"     (top of page, outlined button)
+   Right now there is only ONE button that opens the form:
+
      - "Join the Movement"       (in the "Let's Connect" section)
 
-   The most likely candidate is "Request a Yard Sign".
+   The top of the page was simplified down to Allyson's name, so the former
+   "Request a Yard Sign" button there no longer exists. That means pre-filling
+   is only worth doing if you also want to ADD a button somewhere — most
+   obviously a "Request a Yard Sign" button that opens the form with the
+   yard-sign option already checked.
 
-C. Should "Request a Yard Sign" at the top of the page jump STRAIGHT to the
-   form, or keep scrolling down to the "Let's Connect" section first?
+C. Related: right now a visitor has to scroll to the "Let's Connect" section to
+   find the sign-up form at all. Would you like a second, more prominent link
+   to it — for example back at the top of the page, or in the navigation bar?
 
-   - Straight to the form: fewer steps, likely more sign-ups, but the visitor
-     skips past the section text.
-   - Scroll to the section first: the visitor reads the context around the
-     form before starting it.
-
-   There's no wrong answer — it's a question of whether you'd rather people
-   read the message or complete the form.
+   This is worth deciding alongside (B), since both come down to how many
+   places the form should be reachable from.
 
 
 -----------------------------------------------------------------------------

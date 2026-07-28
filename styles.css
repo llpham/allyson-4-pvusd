@@ -100,6 +100,10 @@ body {
 
 h1, h2, h3 { font-family: var(--font-display); line-height: 1.08; text-wrap: balance; }
 a { color: var(--accent); }
+/* A link that inherits the surrounding text's appearance; the underline only
+   shows on hover/focus so the resting style is unchanged. */
+.plain-link { color: inherit; text-decoration: none; }
+.plain-link:hover, .plain-link:focus-visible { text-decoration: underline; }
 img { max-width: 100%; display: block; }
 
 .container { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gutter); }
@@ -167,6 +171,8 @@ img { max-width: 100%; display: block; }
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(130% 120% at 88% -10%, rgba(240,168,0,.30), transparent 55%);
 }
+/* Copy on the left, logo on the right. Collapses to one centered column
+   under 860px (see the media query below). */
 .hero-inner {
   position: relative; z-index: 1;
   max-width: var(--maxw); margin: 0 auto; padding: clamp(48px,8vw,88px) var(--gutter);
@@ -179,15 +185,15 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase; letter-spacing: .18em; font-weight: 700; font-size: 13px;
   opacity: .9; margin: 0 0 14px;
 }
-.hero h1 { font-size: clamp(40px, 7vw, 68px); margin: 0; font-weight: 800; letter-spacing: -.01em; }
+.hero h1 { font-size: clamp(52px, 10vw, 104px); margin: 0; font-weight: 800; letter-spacing: -.02em; line-height: 1.02; }
 .hero .tagline { font-family: var(--font-display); font-style: italic; font-size: clamp(19px,2.4vw,24px); color: var(--highlight); margin: 16px 0 0; }
 .hero .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
 @media (max-width: 860px) { .hero .hero-actions { justify-content: center; } }
 .hero-logo { justify-self: center; }
 .hero-logo img {
-  width: min(400px, 80vw); height: auto;
+  width: min(360px, 76vw); height: auto;
   background: #fff; border-radius: 18px;
-  padding: clamp(20px, 4vw, 34px);
+  padding: clamp(18px, 3.5vw, 30px);
   box-shadow: 0 20px 50px rgba(0,0,0,.28);
 }
 
@@ -219,7 +225,14 @@ img { max-width: 100%; display: block; }
 /* ------------------------------------------------------------- About */
 .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px,5vw,56px); align-items: start; }
 @media (max-width: 820px) { .about-grid { grid-template-columns: 1fr; } }
-.about-photo img { border-radius: var(--radius); box-shadow: var(--shadow); }
+/* Soft grey frame + lift around the headshot (index.html + about.html).
+   The border is mixed from --text-soft so it stays a neutral grey in both the
+   light and dark themes rather than being hard-coded. */
+.about-photo img {
+  border-radius: var(--radius);
+  border: 5px solid color-mix(in srgb, var(--text-soft) 32%, var(--surface));
+  box-shadow: 0 2px 4px rgba(0,48,72,.07), 0 14px 30px rgba(0,48,72,.16);
+}
 .about-body :where(p) { margin: 0 0 16px; font-size: 17px; }
 /* Action row under a block of copy (index: "Learn More"; sub-pages: sign-up) */
 .about-more { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 0; }
@@ -232,6 +245,17 @@ img { max-width: 100%; display: block; }
   padding-top: 20px; border-top: 1px solid var(--border);
 }
 .longform h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 34px; }
+/* Full-width divider closing the final section (matches the h2 borders above).
+   Scoped to .longform so the short gold .rule bars elsewhere are untouched. */
+.longform hr {
+  height: 0; width: auto; background: none; border: 0; border-radius: 0;
+  border-top: 1px solid var(--border); margin: 40px 0 32px;
+}
+/* .longform p out-specifies .about-more, so restate the action row's spacing */
+.longform .about-more { margin: 32px 0 0; }
+/* This page's intro reads as body copy, so it takes the darker --text rather
+   than the muted --text-soft that .section-lead uses elsewhere. */
+.longform .section-lead { color: var(--text); }
 .credentials { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
 .credentials li {
   font-weight: 700; font-size: 14px; padding: 7px 15px; border-radius: 999px;
@@ -240,7 +264,9 @@ img { max-width: 100%; display: block; }
 
 /* ------------------------------------------------------------- Priorities */
 /* auto-fit so the four short-form cards reflow cleanly at every width */
-.priorities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; align-items: start; }
+/* align-items: stretch (the default) so every card in a row is the same height
+   regardless of how much text it holds */
+.priorities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; align-items: stretch; }
 @media (max-width: 860px) { .priorities-grid { grid-template-columns: 1fr; } }
 .priority-card {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
@@ -262,17 +288,13 @@ img { max-width: 100%; display: block; }
 .priority-card .priority-sub { color: var(--accent); font-size: 15.5px; }
 
 /* ------------------------------------------------------------- Community Conversations */
+/* Plain bulleted list — was a grid of icon cards */
 .connect-options {
-  list-style: none; margin: 0; padding: 0;
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 14px;
+  list-style: disc; margin: 0; padding: 0 0 0 22px;
   max-width: 640px;
 }
-.connect-options li {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
-  padding: 16px 18px; font-weight: 700; font-size: 16px; color: var(--text);
-  display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow-sm);
-}
-.connect-options li span { font-size: 22px; line-height: 1; }
+.connect-options li { margin: 0 0 8px; font-size: 17px; color: var(--text); }
+.connect-options li:last-child { margin-bottom: 0; }
 
 /* ------------------------------------------------------------- Endorsements */
 .endorse-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 22px; }
@@ -290,28 +312,39 @@ img { max-width: 100%; display: block; }
 /* Single combined sign-up form (supporter info + yard sign), linked from the
    "Join the Movement" button. The form opens on docs.google.com rather than
    embedding — see index.html. */
-.form-note { margin: 14px 0 0; max-width: 62ch; font-size: 15px; color: var(--text-soft); }
 
 /* ------------------------------------------------------------- Footer */
 .footer { background: var(--footer-bg); color: #fff; padding-block: 48px 28px; }
 .footer a { color: #fff; text-decoration: none; opacity: .9; }
 .footer a:hover { opacity: 1; text-decoration: underline; }
-.footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 28px; }
-.footer-brand { max-width: 320px; }
-.footer-brand img { height: 46px; margin-bottom: 14px; background:#fff; border-radius: 8px; padding: 6px; }
-.footer-brand p { opacity: .85; font-size: 14.5px; margin: 0; }
-.footer nav { display: flex; flex-direction: column; gap: 8px; }
-/* Placeholder entries that aren't links yet (e.g. social handles) */
-.footer-soon { opacity: .55; }
-.footer h4 { font-family: var(--font-body); text-transform: uppercase; letter-spacing: .1em; font-size: 12px; opacity: .7; margin: 0 0 12px; }
+/* Single centered column: logo, committee name, contact, thank-you, sign-up link.
+   (Replaced the old brand + "Explore"/"Contact" nav columns.) */
+.footer-main {
+  display: grid; justify-items: center; text-align: center;
+  gap: 16px; max-width: 60ch; margin: 0 auto;
+}
+.footer-logo {
+  height: clamp(88px, 12vw, 124px); width: auto;
+  background: #fff; border-radius: 14px; padding: 12px;
+}
+.footer-name { font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 25px); font-weight: 700; margin: 0; }
+.footer-contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 24px; margin: 0; font-size: 16px; }
+/* Instagram glyph sits inline with the handle and inherits the link colour */
+.footer-ig { display: inline-flex; align-items: center; gap: 8px; }
+.footer-ig svg { width: 18px; height: 18px; flex: none; }
+.footer-thanks { margin: 0; font-size: 15.5px; opacity: .9; }
+.footer-cta { margin: 0; font-weight: 700; }
+.footer-cta a { text-decoration: underline; }
 /* FPPC "paid for by" disclosure — kept legible, not buried */
 .disclosure {
   border-top: 1px solid rgba(255,255,255,.18);
   margin-top: 34px; padding-top: 20px;
   font-size: 14px; letter-spacing: .01em; opacity: .95;
+  text-align: center;
 }
 .disclosure strong { font-weight: 700; }
-.footer-bottom { margin-top: 16px; padding-top: 4px; font-size: 13px; opacity: .8; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+/* Copyright line — small, quiet, last thing on the page */
+.footer-bottom { margin-top: 16px; padding-top: 4px; font-size: 12.5px; opacity: .75; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 
 /* Theme toggle */
 .theme-toggle {

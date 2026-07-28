@@ -26,7 +26,8 @@ alyson-school-board/
 ```
 
 ### Sections (in `index.html`)
-1. **Hero** — name, tagline, primary calls to action
+1. **Hero** — name + "elect" line only (tagline, CTA buttons, and logo panel removed
+   to reduce noise; their CSS is retained if any come back)
 2. **About Me** — short-form bio + "Learn More About Allyson" → `about.html`
 3. **My Priorities** — four short-form cards + "Learn More About My Priorities" → `priorities.html`
 4. **Let's Connect** — community conversations + sign-up form button
@@ -48,6 +49,17 @@ change into the HTML. Don't reword it in the HTML alone.
 > **Known typo, kept on purpose.** `priorities.html` contains
 > "…for generations.It also means…" (missing space after the period), exactly as
 > it appears in the doc. Fix it in the doc, then here.
+
+### Footer
+
+Content comes from the campaign doc's **"Footer of Website"** section: committee
+name, email, Instagram handle, the thank-you paragraph, and a "Click here" link to
+the sign-up form. The **FPPC "Paid for by" disclosure** and the small copyright
+line are site-side additions and are kept.
+
+The old **Explore** and **Contact** nav columns were removed. The footer now has
+no page-relative links at all, which means the block is **byte-identical on all
+three pages** and can be copied between them verbatim.
 
 ### ⚠️ Keep the header and footer aligned across pages
 
@@ -269,7 +281,9 @@ visible on the page). Fill these in after initial setup:
 - [x] **Sign-up** — single combined Google Form, linked from the "Join the Movement" button
 - [x] **Contact email** — set to `allyson4pvpusd@gmail.com` **(confirm — source doc
   truncated at "gmai")**
-- [ ] **Social links** — add real Facebook / Instagram handles (footer)
+- [x] **Social links** — Instagram `@allysonlehrer4pvpusd` linked in the footer
+  (**verify the account URL resolves**); Facebook removed — the campaign doc lists
+  only the one handle
 - [x] **Footer disclosure (FPPC)** — committee name set to "Allyson Lehrer 4 PVPUSD"
 - [ ] **FPPC ID** — replace `[TODO: #######]` in the footer once Form 410 is filed
 - [ ] **Privacy** — section removed from the site; add the notice to the Google Form

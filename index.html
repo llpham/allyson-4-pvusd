@@ -42,7 +42,10 @@
              about.html and priorities.html have the same two lines commented out. -->
         <!-- <li><a href="#endorsements">Endorsements</a></li> -->
         <li><a href="#community" class="nav-cta">Connect</a></li>
-        <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button></li>
+        <!-- Light/dark toggle hidden for now. Un-comment on all three pages
+             together; main.js already skips the wiring when it is absent.
+             The site still follows the visitor's OS light/dark preference. -->
+        <!-- <li><button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme">◐</button></li> -->
       </ul>
     </div>
   </header>
@@ -50,18 +53,16 @@
   <main id="main">
     <span id="top"></span>
 
-    <!-- ================================================= HERO -->
+    <!-- ================================================= HERO
+         Kept quiet: logo, the "elect" line, and the name only. The tagline and
+         the two CTA buttons stay removed; their CSS (.tagline / .hero-actions)
+         is still in styles.css if either comes back.
+         ============================================================ -->
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-copy">
-          <p class="kicker">Elect ★★★ For PV School Board</p>
+          <p class="kicker">Elect For PV School Board</p>
           <h1>Allyson Lehrer</h1>
-          <p class="tagline">"A place for every child."</p>
-          <div class="hero-actions">
-            <!-- Both land on the single combined sign-up form -->
-            <a href="#signup" class="btn btn-gold">Join the Movement</a>
-            <a href="#signup" class="btn btn-outline-light">Request a Yard Sign</a>
-          </div>
         </div>
         <div class="hero-logo">
           <img src="img/main_logo.png" alt="A Place for Every Child — campaign logo">
@@ -78,7 +79,12 @@
         <div class="about-grid">
           <div class="about-photo">
             <img src="img/headshot.jpeg" alt="Allyson Lehrer">
+            <!-- Keep this list identical to the one in about.html -->
             <ul class="credentials">
+              <li>Local Mom</li>
+              <li>Experienced Educator</li>
+              <li>Community Volunteer</li>
+              <li>Palos Verdes Native</li>
               <li>M.A. Educational Studies</li>
               <li>MBA</li>
               <li>B.A. Communications</li>
@@ -89,8 +95,8 @@
                "Meet Allyson (Short Form, Landing Page)"). The long form lives on
                about.html — edit the text in the doc first, then mirror it here. -->
           <div class="about-body">
-            <p>As a proud PVPUSD graduate, parent of two young students, and Vice Chair of the PVPUSD Education Advisory Committee, Allyson Lehrer is deeply invested in the future of our schools. Her experiences as a student, education professional, and community leader have given her a unique understanding of what it takes to help every child succeed.</p>
-            <p>Allyson is running for School Board to preserve PVPUSD's tradition of excellence while preparing our students for the future through collaborative leadership, fiscal responsibility, and a commitment to ensuring <strong>#APlaceForEveryChild</strong>.</p>
+            <p>As a proud PVPUSD graduate, parent of two young students, and Vice Chair of the PVPUSD Education Advisory Committee, I am deeply invested in the future of our schools. My experiences as a student, education professional, and community leader have given me a unique understanding of what it takes to help every child succeed.</p>
+            <p>I’m running for School Board to preserve PVPUSD’s tradition of excellence while preparing our students for the future through collaborative leadership, fiscal responsibility, and a commitment to ensuring <strong>#APlaceForEveryChild</strong>.</p>
             <p class="about-more">
               <a href="about.html" class="btn btn-primary">Learn More About Allyson</a>
             </p>
@@ -102,7 +108,7 @@
     <!-- ================================================= PRIORITIES -->
     <section class="section" id="priorities">
       <div class="container container-wide">
-        <p class="eyebrow">What I'll fight for</p>
+        <p class="eyebrow">How I'll Advocate for You</p>
         <h2 class="section-title">My Priorities</h2>
         <hr class="rule">
 
@@ -144,7 +150,7 @@
         </div>
 
         <p class="about-more">
-          <a href="priorities.html" class="btn btn-primary">Learn More About My Priorities</a>
+          <a href="priorities.html" class="btn btn-primary">Learn more about my Priorities</a>
         </p>
       </div>
     </section>
@@ -162,13 +168,22 @@
           Whether we're meeting over coffee, taking a neighborhood walk, or gathering with a small group, I would love the opportunity to hear <em>your</em> ideas, questions, and perspectives about our schools. Every voice matters, and I value conversations with members of our community who bring different experiences, viewpoints, and priorities to the table.
         </p>
 
-        <h3 style="font-size:20px; margin:0 0 16px;">Schedule an Individual or Group Conversation with me:</h3>
+        <!-- The heading links to the scheduling form. .plain-link keeps it looking
+             exactly like the surrounding heading text (underline appears on hover
+             only), per the brief.
+             NOTE: the URL supplied was a /edit link, which only the form's owner can
+             open — swapped to /viewform. Confirm against the form's Send -> link. -->
+        <h3 style="font-size:20px; margin:0 0 16px;">
+          <a class="plain-link"
+             href="https://docs.google.com/forms/d/17HElhA9klyxuh9iKDju1GtrvzwGa43Vj_jpTwIxl1jo/viewform"
+             target="_blank" rel="noopener">Schedule an Individual or Group Conversation with me:</a>
+        </h3>
         <ul class="connect-options">
-          <li><span aria-hidden="true">☕</span> Coffee Chat</li>
-          <li><span aria-hidden="true">🚶</span> Walk &amp; Talk</li>
-          <li><span aria-hidden="true">🏃</span> Run Together</li>
-          <li><span aria-hidden="true">🏡</span> Neighborhood Gathering</li>
-          <li><span aria-hidden="true">👥</span> Community Meeting</li>
+          <li>Coffee Chat</li>
+          <li>Walk &amp; Talk</li>
+          <li>Run Together</li>
+          <li>Neighborhood Gathering</li>
+          <li>Community Meeting</li>
         </ul>
 
         <p style="max-width:62ch; font-size:17px; margin:26px 0 24px;">
@@ -193,10 +208,6 @@
             Join the Movement <span aria-hidden="true">↗</span>
           </a>
         </div>
-        <p class="form-note">
-          Opens in a new tab. Sign up for updates, tell us how you'd like to help, and
-          request a yard sign — all in one form.
-        </p>
       </div>
     </section>
 
@@ -204,8 +215,9 @@
          HIDDEN until there are real endorsements to show. To bring it back,
          un-comment the block below AND the "Endorsements" links in the nav (all
          three pages) and the footer (all three pages).
-         Note: the ~~ markers below were "<!-- -->" comments; HTML comments can't
-         nest, so they were converted. Restore them when un-commenting.
+         Note: the ~~ markers below started life as HTML comments. Comments cannot
+         nest, so they were converted to plain text. Turn them back into comments
+         when un-commenting.
          ================================================================= -->
     <!--
     <section class="section" id="endorsements">
@@ -244,36 +256,43 @@
     -->
   </main>
 
-  <!-- ================================================= FOOTER -->
+  <!-- ================================================= FOOTER
+       Content mirrors the "Footer of Website" section of the campaign doc.
+       IDENTICAL on index.html, about.html and priorities.html — no page-relative
+       links in here, so the block can be copied between them verbatim.
+       ================================================================= -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <img src="img/main_logo.png" alt="A Place for Every Child logo">
-          <p>Allyson Lehrer — candidate for the PVPUSD School Board.
-            A place for every child.</p>
-        </div>
+      <div class="footer-main">
+        <img class="footer-logo" src="img/main_logo.png" alt="A Place for Every Child logo">
 
-        <nav aria-label="Footer">
-          <h4>Explore</h4>
-          <a href="about.html">About</a>
-          <a href="priorities.html">Priorities</a>
-          <!-- HIDDEN with the #endorsements section — see the nav above -->
-          <!-- <a href="#endorsements">Endorsements</a> -->
-          <a href="#community">Connect</a>
-        </nav>
+        <p class="footer-name">Allyson Lehrer 4 PVPUSD</p>
 
-        <nav aria-label="Contact">
-          <h4>Contact</h4>
-          <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=allyson4pvpusd@gmail.com" target="_blank" rel="noopener">Email via Gmail</a>
-          <a href="mailto:allyson4pvpusd@gmail.com">Use email app</a>
-          <!-- TODO: replace each span with <a href="https://..." target="_blank"
-               rel="noopener"> once the real social handles exist. Left as plain text
-               for now — a link that just jumps back to the top of the page reads as
-               broken. -->
-          <span class="footer-soon">Facebook — coming soon</span>
-          <span class="footer-soon">Instagram — coming soon</span>
-        </nav>
+        <p class="footer-contact">
+          <a href="mailto:allyson4pvpusd@gmail.com">allyson4pvpusd@gmail.com</a>
+          <a class="footer-ig" href="https://www.instagram.com/allysonlehrer4pvpusd/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            @allysonlehrer4pvpusd</a>
+        </p>
+
+        <p class="footer-thanks">
+          Thank you for supporting Allyson Lehrer for PVPUSD School Board. Sharing your
+          contact information will help us keep you informed about updates, upcoming
+          events, and opportunities to get involved with the campaign.
+        </p>
+
+        <!-- Same sign-up form as the "Join the Movement" button. The visible text is
+             the doc's wording; aria-label gives screen readers something better than
+             "Click here" when links are listed out of context. -->
+        <p class="footer-cta">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSex3J0urTRSUO1VXXytkag6h7EKMhkLG4rSBx16hZ-Y7R8mnw/viewform"
+             target="_blank" rel="noopener"
+             aria-label="Stay connected with our campaign — open the sign-up form">Click here</a>, to stay connected with our campaign.
+        </p>
       </div>
 
       <!--
