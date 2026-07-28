@@ -1,0 +1,16 @@
+# Jekyll build output (only produced if you build locally)
+_site/
+.jekyll-cache/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Local Claude Code settings (keep .claude/settings.json if you add shared ones)
+.claude/settings.local.json

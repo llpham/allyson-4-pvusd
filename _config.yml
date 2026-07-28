@@ -1,0 +1,18 @@
+# Jekyll config for GitHub Pages.
+#
+# The site is plain static HTML/CSS — no Jekyll templating, layouts, or front
+# matter. Jekyll runs only so this file can control which files get published.
+# Anything listed under `exclude:` stays in the repo but is never copied into
+# the built site, so it has no public URL.
+
+exclude:
+  # Design scratch file
+  - design-preview.html
+  # Internal setup instructions
+  - GOOGLE_FORMS_SETUP.md
+  - GOOGLE_FORMS_SETUP.txt
+  # Repo docs
+  - README.md
+
+# Note: files and folders starting with "." or "_" (e.g. .github/, .claude/)
+# are already excluded by Jekyll's defaults — no need to list them.

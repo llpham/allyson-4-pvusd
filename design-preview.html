@@ -1,0 +1,312 @@
+<title>Allyson Lehrer — Color Scheme Preview</title>
+<style>
+  :root {
+    /* Brand palette — derived from logo + yard sign, cooled toward magenta/berry */
+    --raspberry:      #B81A6A;
+    --raspberry-deep: #8E1A5A;
+    --plum:           #6E1D53;
+    --navy:           #003048;
+    --teal:           #2A9D9D;
+    --teal-deep:      #007890;
+    --gold:           #F0A800;
+
+    /* Neutrals (warm bias toward raspberry/gold) */
+    --cream:   #FBF7F4;
+    --paper:   #FFFFFF;
+    --ink:     #1C2A33;
+    --muted:   #5E6B72;
+    --hairline: #E7DDD8;
+
+    /* Semantic tokens */
+    --bg:        var(--cream);
+    --surface:   var(--paper);
+    --text:      var(--ink);
+    --text-soft: var(--muted);
+    --accent:    var(--raspberry);
+    --accent-2:  var(--teal-deep);
+    --highlight: var(--gold);
+    --border:    var(--hairline);
+
+    --radius: 10px;
+    --shadow: 0 1px 2px rgba(0,48,72,.06), 0 8px 24px rgba(0,48,72,.08);
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:        #0C1A22;
+      --surface:   #12242E;
+      --text:      #ECF1F3;
+      --text-soft: #9DB0B8;
+      --border:    #24404C;
+      --accent:    #E24A93;
+      --accent-2:  #35BEBE;
+      --highlight: #FFC22E;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: var(--cream); --surface: var(--paper); --text: var(--ink);
+    --text-soft: var(--muted); --border: var(--hairline);
+    --accent: var(--raspberry); --accent-2: var(--teal-deep); --highlight: var(--gold);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0C1A22; --surface: #12242E; --text: #ECF1F3;
+    --text-soft: #9DB0B8; --border: #24404C;
+    --accent: #E24A93; --accent-2: #35BEBE; --highlight: #FFC22E;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--sans); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* Header */
+  .masthead {
+    background: var(--accent); color: #fff;
+    border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .masthead-inner { padding: 44px 40px 40px; position: relative; z-index: 1; }
+  .masthead::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(120% 140% at 85% 0%, rgba(240,168,0,.28), transparent 55%);
+  }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: .16em; font-size: 12px;
+    font-weight: 700; opacity: .85; margin: 0 0 10px;
+  }
+  .masthead h1 {
+    font-family: var(--serif); font-weight: 800;
+    font-size: clamp(34px, 6vw, 56px); line-height: 1.02;
+    margin: 0; text-wrap: balance; letter-spacing: -.01em;
+  }
+  .masthead .tag {
+    margin: 14px 0 0; font-style: italic; font-size: 18px;
+    color: var(--highlight); font-family: var(--serif);
+  }
+  .rule {
+    height: 3px; width: 68px; background: var(--highlight);
+    border: 0; margin: 20px 0 0; border-radius: 2px;
+  }
+
+  h2.section {
+    font-family: var(--serif); font-size: 26px; font-weight: 700;
+    margin: 56px 0 6px; color: var(--text);
+  }
+  .section-sub { color: var(--text-soft); margin: 0 0 22px; font-size: 15px; }
+
+  /* Swatches */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 14px; }
+  .swatch {
+    border-radius: var(--radius); overflow: hidden; background: var(--surface);
+    border: 1px solid var(--border); box-shadow: var(--shadow);
+  }
+  .chip { height: 90px; }
+  .swatch .meta { padding: 12px 14px; }
+  .swatch .name { font-weight: 700; font-size: 14px; }
+  .swatch .hex {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 12px; color: var(--text-soft); margin-top: 2px;
+    text-transform: uppercase; letter-spacing: .04em;
+  }
+  .swatch .role { font-size: 12px; color: var(--text-soft); margin-top: 4px; }
+
+  /* Component grid */
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow);
+  }
+  .card h3 {
+    font-family: var(--serif); margin: 0 0 4px; font-size: 20px;
+  }
+  .card p { color: var(--text-soft); margin: 0 0 18px; font-size: 15px; }
+
+  /* Buttons */
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn {
+    font: inherit; font-weight: 700; border: 0; cursor: pointer;
+    padding: 12px 22px; border-radius: 999px; font-size: 15px;
+    transition: transform .08s ease, filter .15s ease;
+  }
+  .btn:hover { filter: brightness(1.06); transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-gold { background: var(--highlight); color: var(--navy); }
+  .btn-teal { background: var(--accent-2); color: #fff; }
+  .btn-ghost {
+    background: transparent; color: var(--accent);
+    box-shadow: inset 0 0 0 2px var(--accent);
+  }
+
+  /* Form */
+  label { display: block; font-weight: 600; font-size: 14px; margin: 0 0 6px; }
+  .field { margin-bottom: 16px; }
+  input, textarea {
+    width: 100%; font: inherit; padding: 11px 13px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--bg); color: var(--text);
+  }
+  input:focus, textarea:focus {
+    outline: 3px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    border-color: var(--accent);
+  }
+
+  /* Pills / badges */
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+  .pill {
+    font-size: 13px; font-weight: 600; padding: 6px 14px; border-radius: 999px;
+  }
+  .pill.a { background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+  .pill.b { background: color-mix(in srgb, var(--accent-2) 16%, transparent); color: var(--accent-2); }
+  .pill.c { background: color-mix(in srgb, var(--highlight) 22%, transparent); color: #7a5600; }
+  @media (prefers-color-scheme: dark) { .pill.c { color: var(--highlight); } }
+
+  /* Type specimen */
+  .specimen p.body { font-size: 16px; max-width: 62ch; }
+  .specimen .label {
+    text-transform: uppercase; letter-spacing: .14em; font-size: 12px;
+    font-weight: 700; color: var(--accent-2);
+  }
+
+  .foot { margin-top: 60px; color: var(--text-soft); font-size: 13px; text-align: center; }
+
+  .theme-toggle {
+    position: fixed; top: 16px; right: 16px; z-index: 5;
+    background: var(--surface); color: var(--text); border: 1px solid var(--border);
+    border-radius: 999px; padding: 8px 16px; font: inherit; font-size: 13px;
+    font-weight: 600; cursor: pointer; box-shadow: var(--shadow);
+  }
+</style>
+
+<button class="theme-toggle" id="themeToggle">◐ Toggle theme</button>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="masthead-inner">
+      <p class="eyebrow">Elect ★★★ For PV School Board</p>
+      <h1>Allyson Lehrer</h1>
+      <p class="tag">"A place for every child"</p>
+      <hr class="rule">
+    </div>
+  </header>
+
+  <h2 class="section">The Palette</h2>
+  <p class="section-sub">Pulled directly from the campaign logo and yard sign so the site reads as one identity.</p>
+
+  <div class="swatches">
+    <div class="swatch">
+      <div class="chip" style="background:#B81A6A"></div>
+      <div class="meta"><div class="name">Magenta-Berry</div><div class="hex">#B81A6A</div><div class="role">Primary · headers, CTAs</div></div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#8E1A5A"></div>
+      <div class="meta"><div class="name">Deep Berry</div><div class="hex">#8E1A5A</div><div class="role">Hover · depth</div></div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#6E1D53"></div>
+      <div class="meta"><div class="name">Plum</div><div class="hex">#6E1D53</div><div class="role">Footer · deepest shade</div></div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#003048"></div>
+      <div class="meta"><div class="name">Navy</div><div class="hex">#003048</div><div class="role">Body text · footers</div></div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#007890"></div>
+      <div class="meta"><div class="name">Deep Teal</div><div class="hex">#007890</div><div class="role">Secondary accent</div></div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#2A9D9D"></div>
+      <div class="meta"><div class="name">Teal</div><div class="hex">#2A9D9D</div><div class="role">Waves · highlights</div></div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#F0A800"></div>
+      <div class="meta"><div class="name">Gold</div><div class="hex">#F0A800</div><div class="role">Sun · emphasis</div></div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#FBF7F4; border-bottom:1px solid #E7DDD8"></div>
+      <div class="meta"><div class="name">Cream</div><div class="hex">#FBF7F4</div><div class="role">Page ground</div></div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#1C2A33"></div>
+      <div class="meta"><div class="name">Ink</div><div class="hex">#1C2A33</div><div class="role">Text on cream</div></div>
+    </div>
+  </div>
+
+  <h2 class="section">Buttons &amp; Actions</h2>
+  <p class="section-sub">How primary, secondary, and accent actions will feel across the site.</p>
+  <div class="card">
+    <div class="btns">
+      <button class="btn btn-primary">Get a yard sign</button>
+      <button class="btn btn-teal">Join the team</button>
+      <button class="btn btn-gold">Volunteer</button>
+      <button class="btn btn-ghost">Read priorities</button>
+    </div>
+  </div>
+
+  <h2 class="section">Forms &amp; Cards</h2>
+  <p class="section-sub">The two key conversion moments — supporter sign-up and the yard-sign request.</p>
+  <div class="cols">
+    <form class="card" onsubmit="return false">
+      <h3>Join the Movement</h3>
+      <p>Sign up to stay in the loop on the campaign.</p>
+      <div class="field"><label>Name</label><input placeholder="Jordan Rivera"></div>
+      <div class="field"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="field"><label>ZIP code</label><input placeholder="90274"></div>
+      <button class="btn btn-primary" style="width:100%">Count me in</button>
+    </form>
+
+    <form class="card" onsubmit="return false">
+      <h3>Request a Yard Sign</h3>
+      <p>Show your support — we'll bring one to you.</p>
+      <div class="field"><label>Name</label><input placeholder="Jordan Rivera"></div>
+      <div class="field"><label>Email</label><input type="email" placeholder="you@email.com"></div>
+      <div class="field"><label>Delivery address</label><textarea rows="2" placeholder="123 Palos Verdes Dr"></textarea></div>
+      <button class="btn btn-gold" style="width:100%">Send me a sign</button>
+    </form>
+  </div>
+
+  <h2 class="section">Priorities &amp; Badges</h2>
+  <p class="section-sub">Tag-style elements for priorities, endorsements, and section labels.</p>
+  <div class="card">
+    <div class="pills">
+      <span class="pill a">Student Wellbeing</span>
+      <span class="pill b">Fiscal Responsibility</span>
+      <span class="pill c">Teacher Support</span>
+      <span class="pill a">Safe Schools</span>
+      <span class="pill b">Transparency</span>
+    </div>
+  </div>
+
+  <h2 class="section">Typography</h2>
+  <p class="section-sub">A confident serif for headlines (echoing the sign's slab lettering) paired with a clean sans for reading.</p>
+  <div class="card specimen">
+    <p class="label">Section label</p>
+    <h1 style="font-family:var(--serif); font-size:40px; margin:.2em 0; font-weight:800; color:var(--text)">Every child deserves a place.</h1>
+    <p class="body">Allyson Lehrer brings an M.Ed. and an MBA to the school board — pairing classroom insight with budget discipline. This paragraph shows body copy at a comfortable reading width, in the sans face that will carry the site's longer content sections like the About and Priorities pages.</p>
+  </div>
+
+  <p class="foot">
+    Color scheme preview for the Allyson Lehrer campaign site · palette sampled from <code>main_logo.png</code> and <code>lawn_sign_small.png</code><br>
+    Note: the headline font is a placeholder slab serif and stays swappable via one CSS variable — the sign's lettering may change. Primary hue cooled to magenta-berry (hue 329°) to read Democratic, not Republican red. Toggle the theme above to review dark mode.
+  </p>
+</div>
+
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light'
+      : cur === 'light' ? 'dark'
+      : (matchMedia('(prefers-color-scheme: dark)').matches ? 'light' : 'dark');
+    root.setAttribute('data-theme', next);
+  });
+</script>
