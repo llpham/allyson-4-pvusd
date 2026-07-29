@@ -85,7 +85,8 @@
 
 /* ------------------------------------------------------------- Base */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 78px; }
+/* scroll-padding-top must clear the sticky nav (~107px with the 86px logo) */
+html { scroll-behavior: smooth; scroll-padding-top: 120px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
@@ -137,7 +138,9 @@ img { max-width: 100%; display: block; }
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
 }
 .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
-.nav-brand img { height: 38px; width: auto; }
+/* Trying a large mark — 38px was the original, then 52, 57, now 86.
+   Easy to step back down; scroll-padding-top below must follow it. */
+.nav-brand img { height: 86px; width: auto; }
 .nav-brand .brand-text { font-family: var(--font-display); font-weight: 700; font-size: 17px; line-height: 1; }
 .nav-brand .brand-text small { display: block; font-family: var(--font-body); font-weight: 600; font-size: 11px; letter-spacing: .06em; color: var(--text-soft); text-transform: uppercase; margin-top: 3px; }
 
@@ -149,6 +152,9 @@ img { max-width: 100%; display: block; }
 .nav-links a:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); color: var(--accent); }
 .nav-links .nav-cta { background: var(--accent); color: #fff; }
 .nav-links .nav-cta:hover { background: var(--accent-h); color: #fff; }
+/* Donation link — gold so it reads as distinct from the berry "Connect" CTA */
+.nav-links .nav-donate { background: var(--highlight); color: var(--navy); }
+.nav-links .nav-donate:hover { background: var(--highlight); color: var(--navy); filter: brightness(1.06); }
 
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; color: var(--text); }
 .nav-toggle svg { display: block; }
@@ -312,6 +318,12 @@ img { max-width: 100%; display: block; }
 /* Single combined sign-up form (supporter info + yard sign), linked from the
    "Join the Movement" button. The form opens on docs.google.com rather than
    embedding — see index.html. */
+
+/* ------------------------------------------------------------- Donate */
+/* Donorbox renders its own chrome inside the custom element; this just caps the
+   width and lets it fill on mobile. */
+.donate-embed { max-width: 780px; }
+.donate-embed dbox-widget { display: block; width: 100%; }
 
 /* ------------------------------------------------------------- Footer */
 .footer { background: var(--footer-bg); color: #fff; padding-block: 48px 28px; }

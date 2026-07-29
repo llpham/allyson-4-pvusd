@@ -15,13 +15,16 @@ alyson-school-board/
 ├── index.html          # home page (all sections, anchor-linked)
 ├── about.html          # "Meet Allyson" — long-form bio
 ├── priorities.html     # "My Priorities" — long-form platform
+├── endorsements.html   # "Endorsements & Gratitude" + Donorbox donor wall
+├── priorities.html     # "My Priorities" — long-form platform
 ├── styles.css          # all styling + brand color tokens
 ├── main.js             # nav toggle, theme toggle, footer year (shared by all pages)
 ├── design-preview.html # standalone color-scheme / component preview (reference only)
 ├── img/
 │   ├── main_logo.png       # "A Place for Every Child" logo
 │   ├── lawn_sign_small.png # yard sign artwork
-│   └── headshot.jpeg       # candidate photo
+│   ├── headshot-clean.jpeg # candidate photo — IN USE (black corner wedges removed)
+│   └── headshot.jpeg       # original as supplied; has black wedges from an ~12° rotation
 └── README.md
 ```
 
@@ -59,17 +62,17 @@ line are site-side additions and are kept.
 
 The old **Explore** and **Contact** nav columns were removed. The footer now has
 no page-relative links at all, which means the block is **byte-identical on all
-three pages** and can be copied between them verbatim.
+four pages** and can be copied between them verbatim.
 
 ### ⚠️ Keep the header and footer aligned across pages
 
 There is **no build step and no templating** — the nav and footer are copied
-verbatim into `index.html`, `about.html`, and `priorities.html`. **A change to
-one must be made in all three**, or the site's navigation silently diverges
+verbatim into `index.html`, `about.html`, `priorities.html`, and
+`endorsements.html`. **A change to one must be made in all four**, or the site's
+navigation silently diverges
 depending on which page a visitor is on. This applies to:
 
 - the nav links (and which ones are commented out)
-- the footer "Explore" and "Contact" columns
 - the FPPC disclosure line
 - anything else between `<header class="nav">` and `</header>`, or inside `<footer>`
 
@@ -206,15 +209,18 @@ not legal advice.**
   **"Paid for by [committee name]"** and the **committee ID number**. This site includes
   a prominent disclosure line in the footer — fill in the real values:
   - In `index.html`, footer, replace `[TODO: Official Committee Name]` and
-    `[TODO: #######]` with the name and FPPC ID from your Form 410.
+    `Coming Soon` with the FPPC ID from your Form 410.
 - **Where a disclaimer IS mandatory** (for the broader campaign, not this site): mass
   mailings, robocalls, radio/TV ads, and **social media ads** — including a candidate's
   personal Facebook page used for campaigning/fundraising ("Ad paid for by …").
 - **Privacy.** The forms collect personal data (name, email, address). The site's
   privacy section has been **removed** — see the TODO below.
-- **If you add online donations later:** contribution limits apply, contributors giving
-  **$100+** must have employer/occupation recorded, and anonymous contributions over
-  **$100** are prohibited. Add the appropriate fundraising disclosures at that time.
+- **⚠️ Online donations are now live.** The nav on all four pages has a **Donate Now**
+  button pointing at `donorbox.org/allyson-lehrer-4-pvpusd`. That makes the following
+  apply *today*, not "later": contribution limits apply, contributors giving **$100+**
+  must have employer/occupation recorded, and anonymous contributions over **$100** are
+  prohibited. **Confirm with the treasurer** that the Donorbox form collects
+  employer/occupation and carries the required committee disclosure.
 
 References: FPPC 2025 Political Advertising Disclosures fact sheets and campaign manuals
 (`fppc.ca.gov`).
@@ -285,7 +291,7 @@ visible on the page). Fill these in after initial setup:
   (**verify the account URL resolves**); Facebook removed — the campaign doc lists
   only the one handle
 - [x] **Footer disclosure (FPPC)** — committee name set to "Allyson Lehrer 4 PVPUSD"
-- [ ] **FPPC ID** — replace `[TODO: #######]` in the footer once Form 410 is filed
+- [ ] **FPPC ID** — replace `Coming Soon` in the footer once Form 410 is filed
 - [ ] **Privacy** — section removed from the site; add the notice to the Google Form
   instead (see the TODO above) and include a data-request contact
 - [ ] **Compliance review** — have the treasurer/FPPC confirm disclosures before launch
@@ -296,7 +302,8 @@ visible on the page). Fill these in after initial setup:
 ### Optional polish
 - [ ] Finalize the headline webfont (see *Headline font* above)
 - [ ] Add a proper `favicon.ico` / social share image
-- [ ] Replace `img/headshot.jpeg` if a higher-res photo is available
+- [ ] Replace `img/headshot-clean.jpeg` if a higher-res photo is available — ideally an
+  untilted original, which would remove the need for the corner repair altogether
 
 ---
 

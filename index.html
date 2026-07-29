@@ -24,7 +24,7 @@
       <a class="nav-brand" href="#top" aria-label="Allyson Lehrer — home">
         <img src="img/main_logo.png" alt="A Place for Every Child logo">
         <span class="brand-text">Allyson Lehrer
-          <small>PV School Board</small>
+          <small>Palos Verdes School Board</small>
         </span>
       </a>
 
@@ -37,11 +37,10 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="about.html">About</a></li>
         <li><a href="priorities.html">Priorities</a></li>
-        <!-- HIDDEN until there are endorsements to show. Un-comment this and the
-             #endorsements section further down (plus the footer link) together.
-             about.html and priorities.html have the same two lines commented out. -->
-        <!-- <li><a href="#endorsements">Endorsements</a></li> -->
+        <li><a href="endorsements.html">Endorsements</a></li>
         <li><a href="#community" class="nav-cta">Connect</a></li>
+        <!-- External donation page (Donorbox). Same markup on all three pages. -->
+        <li><a class="nav-donate" href="https://donorbox.org/allyson-lehrer-4-pvpusd" target="_blank" rel="noopener">Donate Now</a></li>
         <!-- Light/dark toggle hidden for now. Un-comment on all three pages
              together; main.js already skips the wiring when it is absent.
              The site still follows the visitor's OS light/dark preference. -->
@@ -78,11 +77,11 @@
         <hr class="rule">
         <div class="about-grid">
           <div class="about-photo">
-            <img src="img/headshot.jpeg" alt="Allyson Lehrer">
+            <img src="img/headshot-clean.jpeg" alt="Allyson Lehrer">
             <!-- Keep this list identical to the one in about.html -->
             <ul class="credentials">
               <li>Local Mom</li>
-              <li>Experienced Educator</li>
+              <li>Experienced Education Leader</li>
               <li>Community Volunteer</li>
               <li>Palos Verdes Native</li>
               <li>M.A. Educational Studies</li>
@@ -98,7 +97,7 @@
             <p>As a proud PVPUSD graduate, parent of two young students, and Vice Chair of the PVPUSD Education Advisory Committee, I am deeply invested in the future of our schools. My experiences as a student, education professional, and community leader have given me a unique understanding of what it takes to help every child succeed.</p>
             <p>I’m running for School Board to preserve PVPUSD’s tradition of excellence while preparing our students for the future through collaborative leadership, fiscal responsibility, and a commitment to ensuring <strong>#APlaceForEveryChild</strong>.</p>
             <p class="about-more">
-              <a href="about.html" class="btn btn-primary">Learn More About Allyson</a>
+              <a href="about.html" class="btn btn-primary">Learn more about Allyson</a>
             </p>
           </div>
         </div>
@@ -211,49 +210,28 @@
       </div>
     </section>
 
-    <!-- ================================================= ENDORSEMENTS
-         HIDDEN until there are real endorsements to show. To bring it back,
-         un-comment the block below AND the "Endorsements" links in the nav (all
-         three pages) and the footer (all three pages).
-         Note: the ~~ markers below started life as HTML comments. Comments cannot
-         nest, so they were converted to plain text. Turn them back into comments
-         when un-commenting.
+    <!-- ================================================= DONATE
+         Donorbox embedded donation form. The widget script is loaded here rather
+         than in <head> because this is the only page that uses it.
+         The nav's "Donate Now" button still opens donorbox.org directly — point it
+         at "#donate" instead if this embed should be the single donation path.
          ================================================================= -->
-    <!--
-    <section class="section" id="endorsements">
+    <section class="section" id="donate">
       <div class="container">
-        <p class="eyebrow">Endorsements &amp; Support</p>
-        <h2 class="section-title">Endorsements &amp; Support</h2>
+        <p class="eyebrow">Support the Campaign</p>
+        <h2 class="section-title">Donate</h2>
         <hr class="rule">
         <p class="section-lead">
-          Thank you to the following community members for their supporting of my campaign, and a shared belief in a #APlaceforEveryChild.
+          Contributions help us reach families across the Peninsula. Thank you for your
+          support.
         </p>
 
-        ~~ TODO: Add endorsers as they come in. The doc did not yet list specific
-           names or quotes, so the cards below remain placeholders. Duplicate a
-           .quote-card (with a quote) or add names to the list below. ~~
-        <div class="endorse-grid">
-          <div class="quote-card">
-            <blockquote><em>[TODO: Endorsement quote #1.]</em></blockquote>
-            <div class="attribution">[TODO: Name]<small>[TODO: Title / organization]</small></div>
-          </div>
-          <div class="quote-card">
-            <blockquote><em>[TODO: Endorsement quote #2.]</em></blockquote>
-            <div class="attribution">[TODO: Name]<small>[TODO: Title / organization]</small></div>
-          </div>
-          <div class="quote-card">
-            <blockquote><em>[TODO: Endorsement quote #3.]</em></blockquote>
-            <div class="attribution">[TODO: Name]<small>[TODO: Title / organization]</small></div>
-          </div>
-        </div>
-
-        ~~ TODO: Optional — list endorsing community members / organizations here. ~~
-        <div class="supporter-logos">
-          <em>[TODO: List endorsing community members and organizations here as they are confirmed.]</em>
+        <div class="donate-embed">
+          <script type="module" src="https://donorbox.org/widgets.js" async></script><dbox-widget campaign="allyson-lehrer-4-pvpusd" type="donation_form" enable-auto-scroll="true"></dbox-widget>
         </div>
       </div>
     </section>
-    -->
+
   </main>
 
   <!-- ================================================= FOOTER
@@ -300,18 +278,18 @@
         Required once the campaign registers as a recipient committee (raises/spends
         $2,000+ in a calendar year — Form 410). The FPPC recommends "Paid for by
         [committee name]" + the committee ID number on the candidate's website.
-        TODO: replace the bracketed values below with the official committee name and
-        FPPC ID number from your Form 410 registration.
+        TODO: replace "Coming Soon" below with the official FPPC ID number from your
+        Form 410 registration, and confirm the committee name.
       -->
       <p class="disclosure">
         Paid for by <strong>Allyson Lehrer 4 PVPUSD</strong>
-        &nbsp;·&nbsp; FPPC ID# <strong>[TODO: #######]</strong>
-        <!-- TODO: add FPPC committee ID once Form 410 is filed -->
+        &nbsp;·&nbsp; FPPC ID # <strong>Coming Soon</strong>
+        <!-- TODO: replace "Coming Soon" with the real FPPC committee ID once Form 410 is filed -->
         <!-- TODO (optional but recommended): committee mailing address -->
       </p>
 
       <div class="footer-bottom">
-        <span>&copy; <span id="year"></span> Allyson Lehrer for PV School Board.</span>
+        <span>&copy; <span id="year"></span> Allyson Lehrer 4 PVPUSD</span>
       </div>
     </div>
   </footer>
