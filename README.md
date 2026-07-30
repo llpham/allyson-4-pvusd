@@ -14,9 +14,10 @@ and no build step beyond Jekyll acting as a file filter (see *Deploy*).
 ```
 alyson-school-board/
 ├── index.html          # home page — hero, about, priorities, connect, donate
-├── about.html          # "Meet Allyson" — long-form bio
-├── priorities.html     # "My Priorities" — long-form platform
-├── endorsements.html   # "Endorsements & Gratitude" + Donorbox donor wall
+├── about/index.html    # "Meet Allyson" — long-form bio            -> /about/
+├── priorities/index.html   # "My Priorities" — long-form platform  -> /priorities/
+├── endorsements/index.html # "Endorsements & Gratitude" + donor wall -> /endorsements/
+├── index_2.html        # UNLINKED hero-banner variant for client comparison
 ├── styles.css          # all styling + brand color tokens
 ├── main.js             # nav toggle + footer year (shared by all four pages)
 ├── _config.yml         # Jekyll: controls which files get published
@@ -39,14 +40,21 @@ alyson-school-board/
 └── README.md
 ```
 
-### Pages
+### URLs
+
+Each sub-page is a **directory containing `index.html`**, so it is served at a
+clean path with no `.html` extension — `/about/` rather than `/about.html`.
+Requests without the trailing slash (`/about`) get a 301 to the slash form.
+
+**Links must use the directory path** (`about/`, `../priorities/`), never the file.
+Because sub-pages sit one level down, their assets and home-page links need `../`.
 
 | Page | Contains |
 |------|----------|
-| `index.html` | Hero (logo + name), About (short), Priorities (4 cards), Let's Connect, Donate |
-| `about.html` | Long-form bio |
-| `priorities.html` | Long-form platform — four priorities with full detail |
-| `endorsements.html` | Gratitude copy + Donorbox donor wall |
+| `/` | Hero (logo + name), About (short), Priorities (4 cards), Let's Connect, Donate |
+| `/about/` | Long-form bio |
+| `/priorities/` | Long-form platform — four priorities with full detail |
+| `/endorsements/` | Gratitude copy + Donorbox donor wall |
 
 Home-page sections, in order — `#about`, `#priorities`, `#community`, `#donate`.
 `#signup` is the anchor on the "Join the Movement" button inside Let's Connect.
@@ -58,22 +66,23 @@ long on a dedicated page. **All of it is verbatim from the campaign's Google Doc
 
 | Content    | Short (home page)           | Long (own page)   | Doc tab             |
 |------------|-----------------------------|-------------------|---------------------|
-| Bio        | `index.html`, `#about`      | `about.html`      | Meet Allyson Lehrer |
-| Priorities | `index.html`, `#priorities` | `priorities.html` | Priorities          |
+| Bio        | `index.html`, `#about`      | `about/index.html`      | Meet Allyson Lehrer |
+| Priorities | `index.html`, `#priorities` | `priorities/index.html` | Priorities          |
 
 Both use the doc's **first-person** versions (found below the third-person ones in
 the same tab). The doc is the source of truth — **edit the text there first**, then
 mirror the change into the HTML. Don't reword it in the HTML alone.
 
-> **Known typo, kept on purpose.** `priorities.html` contains
+> **Known typo, kept on purpose.** `priorities/index.html` contains
 > "…for generations.It also means…" (missing space after the period), exactly as
 > it appears in the doc. Fix it in the doc, then here.
 
 ### ⚠️ Keep the header and footer aligned across pages
 
 There is **no templating** — the nav and footer are copied verbatim into all four
-HTML files. **A change to one must be made in all four**, or the site silently
-diverges depending on which page a visitor lands on. This applies to:
+HTML files (plus `index_2.html` while it exists). **A change to one must be made in
+all of them**, or the site silently diverges depending on which page a visitor lands
+on. This applies to:
 
 - the nav links (and which ones are commented out)
 - everything between `<header class="nav">` and `</header>`
@@ -82,7 +91,8 @@ diverges depending on which page a visitor lands on. This applies to:
 The **footer is byte-identical across all four pages** — it contains no
 page-relative links, so it can be copied straight across. The **nav is not**:
 `index.html` links to its own sections (`#community`), while sub-pages must use
-`index.html#community`, and each page marks its own entry `aria-current="page"`.
+`../#community`; assets in sub-pages need `../` too (`../styles.css`,
+`../img/…`, `../main.js`). Each page marks its own entry `aria-current="page"`.
 
 Shared behaviour (nav toggle, footer year) lives in one place — `main.js` — so it
 does **not** need syncing.
@@ -197,7 +207,7 @@ Two entry points, both for campaign `allyson-lehrer-4-pvpusd`:
 
 - **Donate Now** button in the nav of all four pages → opens `donorbox.org` directly.
 - **Donate** section on the home page (`#donate`) → embedded Donorbox form widget.
-- The **donor wall** on `endorsements.html` is a third embed.
+- The **donor wall** on `/endorsements/` is a third embed.
 
 These use two different vendor scripts — `widgets.js` (module) for the donation
 form, `widget.js` for the donor wall. Both are Donorbox's own snippets; leave them
@@ -304,7 +314,11 @@ repo but is never copied into the built site, so it has **no public URL**:
 - `FORM_PREFILL_OPTIONS.txt`
 - `README.md`
 
-**Add any new internal file to that list**, or it will be published. Files and
+**Add any new internal file to that list**, or it will be published.
+
+`index_2.html` is deliberately **not** excluded — it is an unlinked hero-banner
+variant for client comparison, reachable only by typing `/index_2.html`. It carries
+a `noindex` meta tag. Delete it once the hero decision is made. Files and
 folders starting with `.` or `_` (`.github/`, `.claude/`) are excluded by Jekyll's
 defaults and don't need listing.
 
@@ -321,7 +335,7 @@ repo root.
 
 **Content**
 
-- [ ] **Endorsements** — `endorsements.html` has the gratitude copy and donor wall,
+- [ ] **Endorsements** — `/endorsements/` has the gratitude copy and donor wall,
   but **no actual endorser names or quotes yet**. Add them as they're confirmed.
 - [ ] **FPPC ID** — replace "Coming Soon" in the footer of **all four pages** once
   Form 410 is filed.

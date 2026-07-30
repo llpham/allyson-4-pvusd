@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Allyson Lehrer for PV School Board</title>
+  <title>Allyson Lehrer for PV School Board — hero variant B</title>
+  <!-- Unlinked comparison page: reachable only by typing the URL. -->
+  <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Allyson Lehrer — candidate for the PVPUSD School Board. A place for every child.">
 
   <!-- Open Graph / social preview -->
@@ -14,6 +16,35 @@
 
   <link rel="icon" href="img/main_logo.png">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- ============================================================
+       index_2.html ONLY - hero banner variant.
+       Kept in this file (not styles.css) so index.html is unaffected
+       and this page can be deleted in one step.
+       ============================================================ -->
+  <style>
+    /* Single full-width column instead of the copy + logo two-column grid */
+    .hero-inner--banner {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      padding-block: clamp(28px, 4vw, 52px);
+    }
+    /* Framed like .hero-logo img, because the artwork's own maroon (#71012A)
+       is darker than the site berry (#B81A6A) - the rounded edge and shadow
+       make that boundary read as a deliberate frame rather than a mismatch. */
+    .hero-banner {
+      width: 100%; max-width: 940px; height: auto;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 50px rgba(0,0,0,.28);
+    }
+    /* Off-screen but read by screen readers: the banner is an image, so the
+       page still needs a real h1 for structure and assistive tech. */
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px;
+      margin: -1px; padding: 0; overflow: hidden;
+      clip-path: inset(50%); white-space: nowrap; border: 0;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -52,20 +83,16 @@
   <main id="main">
     <span id="top"></span>
 
-    <!-- ================================================= HERO
-         Kept quiet: logo, the "elect" line, and the name only. The tagline and
-         the two CTA buttons stay removed; their CSS (.tagline / .hero-actions)
-         is still in styles.css if either comes back.
+    <!-- ================================================= HERO (VARIANT B)
+         Replaces the text hero with the campaign banner artwork. The banner
+         already carries the name, "Elect ... For PV School Board", the logo and
+         the tagline, so no text is repeated alongside it.
+         Section background stays var(--accent) to match index.html.
          ============================================================ -->
     <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <p class="kicker">Elect For PV School Board</p>
-          <h1>Allyson Lehrer</h1>
-        </div>
-        <div class="hero-logo">
-          <img src="img/main_logo.png" alt="A Place for Every Child — campaign logo">
-        </div>
+      <div class="hero-inner hero-inner--banner">
+        <h1 class="visually-hidden">Elect Allyson Lehrer, M.Ed. | MBA, for PV School Board - a place for every child</h1>
+        <img class="hero-banner" src="img/hero_image.png" alt="" aria-hidden="true">
       </div>
     </section>
 
