@@ -33,7 +33,12 @@
   --accent-2:  var(--teal-deep);
   --highlight: var(--gold);
   --border:    var(--hairline);
-  --footer-bg: var(--plum);
+  /* Footer matches the hero and the primary buttons (berry). --plum is kept in
+     the palette above but is no longer used anywhere. */
+  --footer-bg: var(--accent);
+
+  /* Light-only site — stops browsers auto-darkening form controls/scrollbars */
+  color-scheme: light;
 
   /* --- Fonts ---
      Headline font kept in ONE variable so it can be swapped in a single line
@@ -53,7 +58,17 @@
   --gutter: clamp(20px, 5vw, 48px);
 }
 
-/* Dark theme via OS preference … */
+/* =============================================================
+   DARK MODE IS DISABLED SITE-WIDE.
+   Every visitor gets the light design regardless of their OS setting.
+   The `color-scheme: light` declaration in :root above is what tells the
+   browser not to auto-darken form controls, scrollbars, etc.
+
+   To re-enable: un-comment BOTH blocks below, and un-comment the theme
+   toggle button in the nav of all four pages (main.js already skips the
+   wiring when the button is absent).
+   -------------------------------------------------------------
+
 @media (prefers-color-scheme: dark) {
   :root {
     --bg:        #0C1A22;
@@ -69,18 +84,23 @@
     --footer-bg: #0A1620;
   }
 }
-/* … and via explicit toggle (must win over the media query both ways) */
-:root[data-theme="light"] {
-  --bg: var(--cream); --surface: var(--paper); --surface-2: #F4ECE7;
-  --text: var(--ink); --text-soft: var(--muted); --border: var(--hairline);
-  --accent: var(--berry); --accent-h: var(--berry-deep); --accent-2: var(--teal-deep);
-  --highlight: var(--gold); --footer-bg: var(--plum);
-}
 :root[data-theme="dark"] {
   --bg: #0C1A22; --surface: #12242E; --surface-2: #16303C;
   --text: #ECF1F3; --text-soft: #9DB0B8; --border: #24404C;
   --accent: #E24A93; --accent-h: #F06AAB; --accent-2: #35BEBE;
   --highlight: #FFC22E; --footer-bg: #0A1620;
+}
+
+   ============================================================= */
+
+/* Explicit light toggle. Harmless while dark mode is off, and it neutralises
+   a "dark" choice any earlier visitor may still have saved in localStorage. */
+:root[data-theme="light"],
+:root[data-theme="dark"] {
+  --bg: var(--cream); --surface: var(--paper); --surface-2: #F4ECE7;
+  --text: var(--ink); --text-soft: var(--muted); --border: var(--hairline);
+  --accent: var(--berry); --accent-h: var(--berry-deep); --accent-2: var(--teal-deep);
+  --highlight: var(--gold); --footer-bg: var(--accent);
 }
 
 /* ------------------------------------------------------------- Base */
@@ -101,10 +121,31 @@ body {
 
 h1, h2, h3 { font-family: var(--font-display); line-height: 1.08; text-wrap: balance; }
 a { color: var(--accent); }
-/* A link that inherits the surrounding text's appearance; the underline only
-   shows on hover/focus so the resting style is unchanged. */
-.plain-link { color: inherit; text-decoration: none; }
-.plain-link:hover, .plain-link:focus-visible { text-decoration: underline; }
+/* A link that inherits the surrounding text's appearance. At rest it is
+   pixel-identical to a non-link heading; the affordance only appears on
+   interaction:
+     hover  - underline fades in + colour shifts to berry
+     active - stays berry (this is the feedback a TOUCH user gets on tap,
+              since touch devices never fire :hover)
+     focus  - same gold ring the buttons use, for keyboard parity
+   The underline is always present but transparent, so it fades rather than
+   jumping the text. */
+.plain-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: .18em;
+  text-decoration-thickness: 2px;
+  transition: color .15s ease, text-decoration-color .15s ease;
+}
+.plain-link:hover,
+.plain-link:active,
+.plain-link:focus-visible {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+.plain-link:focus-visible { outline: 3px solid var(--highlight); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .plain-link { transition: none; } }
 img { max-width: 100%; display: block; }
 
 .container { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gutter); }
