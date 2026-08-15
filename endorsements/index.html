@@ -24,7 +24,7 @@
   <header class="nav">
     <div class="nav-inner">
       <a class="nav-brand" href="../" aria-label="Allyson Lehrer — home">
-        <img src="../img/main_logo.png" alt="A Place for Every Child logo">
+        <img src="../img/main_logo_no_text.png" alt="A Place for Every Child logo">
         <span class="brand-text">Allyson Lehrer
           <small>Palos Verdes School Board</small>
         </span>
@@ -40,6 +40,7 @@
         <li><a href="../about/">About</a></li>
         <li><a href="../priorities/">Priorities</a></li>
         <li><a href="../endorsements/" aria-current="page">Endorsements</a></li>
+        <li><a href="../events/">Events</a></li>
         <li><a href="../#community" class="nav-cta">Connect</a></li>
         <!-- External donation page (Donorbox). Same markup on all four pages. -->
         <li><a class="nav-donate" href="https://donorbox.org/allyson-lehrer-4-pvpusd" target="_blank" rel="noopener">Donate Now</a></li>
@@ -52,39 +53,95 @@
   <main id="main">
     <span id="top"></span>
 
-    <!-- ================================================= ENDORSEMENTS -->
+    <!-- ================================================= ENDORSEMENTS
+         Content from Endorsments.pdf. Endorsers appear in the PDF's order; the
+         photo side alternates left / right / left for visual rhythm.
+         ================================================================= -->
     <section class="section" id="endorsements">
       <div class="container">
-        <!-- h1 (not h2) — this is the page's top-level heading, unlike the sections
+        <!-- h1 (not h2) - this is the page's top-level heading, unlike the sections
              on index.html where the hero owns the h1. -->
         <h1 class="section-title">Endorsements &amp; Gratitude</h1>
         <hr class="rule">
 
         <div class="longform">
           <p class="section-lead">Thank you for supporting my campaign.</p>
+          <p>Whether you have endorsed this campaign as a trusted community leader or supported me as a neighbor, parent, or community member, I am deeply grateful for your confidence and your shared belief in <strong>#APlaceForEveryChild</strong>.</p>
+          <p>Every endorsement, donation, and word of encouragement reminds me that this campaign is powered by people who care deeply about the future of PVPUSD. Your support makes it possible to connect with voters, share our vision, and build a campaign rooted in thoughtful leadership, collaboration, and a commitment to every student.</p>
+          <p>I am truly honored to have your trust and support. Thank you for being part of this campaign and this community.</p>
+        </div>
 
-          <p>Whether you've endorsed this campaign as a trusted community leader or contributed as a friend, neighbor, parent, or community member, I am deeply grateful for your confidence and belief in me.</p>
-          <p>Every endorsement, every donation, and every word of encouragement reminds me that this campaign is powered by people who care deeply about the future of PVPUSD. Your support makes it possible to connect with voters, share our vision, and build a campaign rooted in thoughtful leadership, collaboration, and a commitment to every student.</p>
-          <p>I am honored to have your trust and will work every day to earn it. Together, we can ensure PVPUSD remains a district where every child has the opportunity to thrive.</p>
+        <hr class="section-divider">
 
-          <hr>
+        <!-- ---- 1. photo LEFT ---- -->
+        <article class="endorsement">
+          <img class="endorser-photo" src="../img/endorse-paul-seo.png" alt="Paul Seo">
+          <div class="endorsement-body">
+            <blockquote>
+              <p>&ldquo;I&rsquo;m proud to endorse Allyson Lehrer for PVPUSD School Board. Allyson brings an even-keeled, level-headed approach to leadership, along with the heart and experience of an educator. She has real skin in the game as a longtime member of this community and PVPUSD graduate who returned to raise her family here. I know she will approach every issue thoughtfully, pragmatically, and with students, families, educators, and our community at the center of her decisions.</p>
+              <p>I&rsquo;m confident Allyson will be a steady, thoughtful voice on the School Board, and I&rsquo;m honored to support her.&rdquo;</p>
+            </blockquote>
+            <p class="endorser-name">Paul Seo<span>Mayor, City of Rancho Palos Verdes</span></p>
+          </div>
+        </article>
 
-          <!-- Donorbox donor wall. Note this uses widget.js (singular) — a different
+        <hr class="section-divider">
+
+        <!-- ---- 2. photo RIGHT ---- -->
+        <article class="endorsement endorsement--right">
+          <img class="endorser-photo" src="../img/endorse-linda-kurt.png" alt="Linda Kurt">
+          <div class="endorsement-body">
+            <blockquote>
+              <p>&ldquo;As a proud graduate of the PVPUSD schools and the mother of two young children, Allyson understands the importance of great schools. Her background in both education and business, combined with her dedication to the role, make her an ideal candidate for the school board&rdquo;</p>
+            </blockquote>
+            <p class="endorser-name">Linda Kurt<span>Current Member, Board of Education; Retired PVPUSD Teacher</span></p>
+          </div>
+        </article>
+
+        <hr class="section-divider">
+
+        <!-- ---- 3. photo LEFT ---- -->
+        <article class="endorsement">
+          <img class="endorser-photo" src="../img/endorse-stephen-schwartz.png" alt="Stephen Schwartz">
+          <div class="endorsement-body">
+            <blockquote>
+              <p>&ldquo;I&rsquo;ve known Allyson for nearly 10 years, since we first worked together at a school in Texas, and I know she would be an excellent addition to the School Board. She is a strategic, results-oriented leader with strong acumen for driving enrollment, managing budgets, and collaborating across a school community to achieve shared goals. Allyson brings thoughtful leadership, sound judgment, and a big heart to everything she does, and I know she would bring those qualities to serving PVPUSD students, families, and teachers.&rdquo;</p>
+            </blockquote>
+            <p class="endorser-name">Stephen Schwartz<span>Founder, Pathfinders Academic Consulting</span></p>
+          </div>
+        </article>
+
+        <hr class="section-divider">
+
+        <!-- ---- endorsers without a photo, grouped ---- -->
+        <div class="endorse-also">
+          <h2>Also endorsed by</h2>
+          <ul>
+            <li>Richard &ldquo;Rick&rdquo; Phillips<span>Former Member, Board of Education</span></li>
+            <li>George Lewis<span>Councilmember, City of Rancho Palos Verdes</span></li>
+            <li>And others!</li>
+          </ul>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- ---- donor wall, below every endorsement ---- -->
+        <div class="donor-wall">
+          <h2>Thank you to our donors</h2>
+          <!-- Donorbox donor wall. Note this uses widget.js (singular) - a different
                script from the widgets.js module used by the donation form on
                index.html. Both are the vendor's own snippets; leave them as supplied. -->
-          <div class="donor-wall">
-            <script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe height="93px" width="100%" src="https://donorbox.org/embed/allyson-lehrer-4-pvpusd?donor_wall_color=%23B81A6A&amp;only_donor_wall=true" style="width: 100%; max-width:500px; min-width:310px; min-height: 345px;" seamless="seamless" name="donorbox" frameborder="0" scrolling="no"> </iframe>
-          </div>
-
-          <p class="about-more">
-            <a class="btn btn-primary btn-lg"
-               href="https://donorbox.org/allyson-lehrer-4-pvpusd"
-               target="_blank" rel="noopener">
-              Donate Now <span aria-hidden="true">↗</span>
-            </a>
-            <a href="../about/" class="btn btn-ghost">Meet Allyson</a>
-          </p>
+          <script src="https://donorbox.org/widget.js" paypalExpress="false"></script><iframe height="93px" width="100%" src="https://donorbox.org/embed/allyson-lehrer-4-pvpusd?donor_wall_color=%23B81A6A&amp;only_donor_wall=true" style="width: 100%; max-width:500px; min-width:310px; min-height: 345px;" seamless="seamless" name="donorbox" frameborder="0" scrolling="no"> </iframe>
         </div>
+
+        <p class="about-more">
+          <a class="btn btn-primary btn-lg"
+             href="https://donorbox.org/allyson-lehrer-4-pvpusd"
+             target="_blank" rel="noopener">
+            Donate Now <span aria-hidden="true">&#8599;</span>
+          </a>
+          <a href="../about/" class="btn btn-ghost">Meet Allyson</a>
+        </p>
       </div>
     </section>
   </main>
