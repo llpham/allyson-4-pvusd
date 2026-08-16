@@ -163,6 +163,9 @@ img { max-width: 100%; display: block; }
 }
 .section-title { font-size: clamp(28px, 4.5vw, 40px); margin: 0 0 14px; color: var(--text); }
 .section-lead { color: var(--text-soft); font-size: 18px; max-width: 60ch; margin: 0 0 36px; }
+/* Ordinary body copy inside a section. Replaces the repeated inline styles that
+   were on these paragraphs, so every paragraph in a section matches. */
+.section-body { max-width: 62ch; font-size: 17px; margin: 0 0 26px; }
 
 /* Decorative rule echoing the sign's gold underline */
 .rule { height: 4px; width: 64px; background: var(--highlight); border: 0; border-radius: 2px; margin: 0 0 22px; }
@@ -212,12 +215,18 @@ img { max-width: 100%; display: block; }
   .nav-toggle { display: block; }
   .nav-links {
     position: absolute; top: 100%; left: 0; right: 0;
-    flex-direction: column; align-items: stretch; gap: 2px;
+    flex-direction: column; align-items: stretch; gap: 4px;
     background: var(--surface); border-bottom: 1px solid var(--border);
     padding: 10px var(--gutter) 16px; display: none;
   }
   .nav-links.open { display: flex; }
-  .nav-links a { padding: 12px; white-space: normal; }
+  /* display:block matters: as inline elements the vertical padding paints
+     outside the line box, so the filled Connect/Donate backgrounds bled into
+     the rows above and below and looked overlapped. */
+  .nav-links a { display: block; padding: 12px; white-space: normal; }
+  /* Extra air around the two filled buttons so they read as separate pills */
+  .nav-links .nav-cta,
+  .nav-links .nav-donate { margin-top: 6px; }
 }
 
 /* ------------------------------------------------------------- Hero */
@@ -236,10 +245,20 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; text-align: center; } }
 
+/* Sized to read as one lockup with the name rather than as captions.
+   Three things keep it cohesive:
+     - font-size scales with the h1 (roughly 1:3, so the name still dominates)
+     - line-height 1.05 removes the 1.65 body leading, which was adding almost
+       as much invisible space around these lines as the text is tall
+     - margins in em, so the gap stays proportional at every viewport */
 .hero .kicker {
-  text-transform: uppercase; letter-spacing: .18em; font-weight: 700; font-size: 13px;
-  opacity: .9; margin: 0 0 14px;
+  text-transform: uppercase; letter-spacing: .12em; font-weight: 700;
+  font-size: clamp(17px, 2.3vw, 27px);
+  line-height: 1.05;
+  opacity: .95; margin: 0 0 .18em;
 }
+/* Matching line below the name, so the lockup reads Elect / Name / For … Board */
+.hero .kicker-sub { margin: .18em 0 0; }
 .hero h1 { font-size: clamp(52px, 10vw, 104px); margin: 0; font-weight: 800; letter-spacing: -.02em; line-height: 1.02; }
 .hero .tagline { font-family: var(--font-display); font-style: italic; font-size: clamp(19px,2.4vw,24px); color: var(--highlight); margin: 16px 0 0; }
 .hero .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
@@ -404,7 +423,6 @@ img { max-width: 100%; display: block; }
 .endorse-also li { font-weight: 700; font-size: 17px; color: var(--text); }
 .endorse-also li span { display: block; font-weight: 600; font-size: 15px; color: var(--text-soft); }
 
-.donor-wall h2 { font-size: clamp(21px, 2.4vw, 26px); margin: 0 0 16px; color: var(--text); }
 
 /* ------------------------------------------------------------- Events */
 .event h2 { font-size: clamp(22px, 2.6vw, 28px); margin: 0 0 12px; color: var(--text); }
