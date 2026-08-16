@@ -16,5 +16,16 @@ exclude:
   # Repo docs
   - README.md
 
+  # PRIVACY — unblurred originals showing children's faces. Without these two
+  # lines they would be fetchable at /img/yard_sign_1.png, which defeats the
+  # point of blurring them. The site uses yard_sign_1_web.jpg / _3_web.jpg,
+  # which are blurred and web-sized. (yard_sign_2 has no faces — not excluded.)
+  - img/yard_sign_1.png
+  - img/yard_sign_3.png
+  # Full-size blurred intermediates — safe to publish, but nothing links to
+  # them and they are ~22 MB, so keep them out of the built site.
+  - img/yard_sign_1_blurred.png
+  - img/yard_sign_3_blurred.png
+
 # Note: files and folders starting with "." or "_" (e.g. .github/, .claude/)
 # are already excluded by Jekyll's defaults — no need to list them.
