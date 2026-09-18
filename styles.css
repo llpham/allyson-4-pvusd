@@ -295,6 +295,10 @@ img { max-width: 100%; display: block; }
 .btn-ghost { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); }
 .btn-ghost:hover { background: color-mix(in srgb, var(--accent) 12%, transparent); }
 .btn-lg { font-size: 17px; padding: 15px 30px; }
+/* Status badge that borrows the button look without acting like one — e.g.
+   "Registration Not Required". Not a link/button element, so no href/action. */
+.btn-static { cursor: default; }
+.btn-static:hover, .btn-static:active { transform: none; }
 
 /* Pair of email actions: Gmail (primary) + mailto (secondary) */
 .email-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
@@ -400,6 +404,12 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 2px 4px rgba(0,48,72,.07), 0 12px 26px rgba(0,48,72,.14);
 }
 
+/* Organization logos (e.g. PVFA) are landscape, not headshots — show them
+   uncropped instead of forcing the 4/5 portrait crop. */
+.endorser-logo {
+  aspect-ratio: 3 / 1; object-fit: contain; padding: 16px; background: #fff;
+}
+
 .endorsement blockquote { margin: 0; }
 .endorsement blockquote p { margin: 0 0 14px; font-size: 17px; line-height: 1.65; }
 .endorsement blockquote p:last-child { margin-bottom: 0; }
@@ -428,7 +438,15 @@ img { max-width: 100%; display: block; }
 
 
 /* ------------------------------------------------------------- Events */
-.event h2 { font-size: clamp(22px, 2.6vw, 28px); margin: 0 0 12px; color: var(--text); }
+/* Same treatment as .eyebrow elsewhere on the site — a small uppercase label
+   reads clearly as a group heading rather than competing with the event
+   titles (.event h3) directly below it. */
+.events-group-title {
+  text-transform: uppercase; letter-spacing: .16em; font-weight: 700;
+  font-size: 13px; color: var(--accent-2); margin: 0 0 24px;
+  font-family: var(--font-body);
+}
+.event h3 { font-size: clamp(22px, 2.6vw, 28px); margin: 0 0 12px; color: var(--text); }
 .event p { max-width: 68ch; font-size: 17px; }
 .event-meta {
   list-style: none; margin: 0 0 16px; padding: 0;
