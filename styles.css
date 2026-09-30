@@ -436,6 +436,22 @@ img { max-width: 100%; display: block; }
 .endorse-also li { font-weight: 700; font-size: 17px; color: var(--text); }
 .endorse-also li span { display: block; font-weight: 600; font-size: 15px; color: var(--text-soft); }
 
+/* Alphabetized quick-reference list above the full endorsement quotes. */
+.endorsement-index ul {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 40px;
+}
+.endorsement-index li {
+  font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--text);
+}
+.endorsement-index li span {
+  display: block; font-family: var(--font-body); font-weight: 600;
+  font-size: 14px; color: var(--text-soft); margin-top: 2px;
+}
+@media (max-width: 700px) {
+  .endorsement-index ul { grid-template-columns: 1fr; }
+}
+
 
 /* ------------------------------------------------------------- Events */
 /* Same treatment as .eyebrow elsewhere on the site — a small uppercase label
