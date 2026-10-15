@@ -330,6 +330,30 @@ img { max-width: 100%; display: block; }
 /* Action row under a block of copy (index: "Learn More"; sub-pages: sign-up) */
 .about-more { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 0; }
 
+/* Highlighted correction box — reuses the .priority-card left-bar treatment
+   so it reads as an important callout rather than ordinary body copy. */
+.clarification {
+  position: relative; max-width: 72ch;
+  background: color-mix(in srgb, var(--accent-2) 8%, var(--surface));
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: clamp(22px, 3.5vw, 32px); margin: 0 0 40px;
+}
+.clarification::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+  background: var(--accent-2); border-radius: var(--radius) 0 0 var(--radius);
+}
+.clarification h2 { font-size: clamp(22px, 2.6vw, 27px); margin: 0 0 14px; color: var(--text); }
+.clarification p { margin: 0 0 14px; font-size: 16px; line-height: 1.6; color: var(--text); }
+.clarification p:last-child { margin-bottom: 0; }
+
+/* Wider than the 72ch .longform column it sits above, so it reads as visually
+   distinct from the body copy (not just a different color) and needs less
+   scrolling to read. Desktop/tablet only — on phones the viewport is already
+   narrower than 72ch, so this box should keep matching it there. */
+@media (min-width: 701px) {
+  #voucher-clarification { max-width: 980px; }
+}
+
 /* Long-form body copy on the sub-pages (priorities.html) */
 .longform { max-width: 72ch; }
 .longform p { margin: 0 0 16px; font-size: 17px; }
